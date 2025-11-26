@@ -37,9 +37,8 @@
         .tab { flex: 0 0 auto; padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; color: var(--text-light); background: #f3f4f6; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
         .tab.active { background: var(--primary); color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3); }
 
-        /* Weather Widget */
+        /* Weather Widget Variants (Harmonious Colors) */
         .daily-weather {
-            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
             color: white;
             border-radius: 12px;
             padding: 15px 20px;
@@ -47,8 +46,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0, 0.1);
         }
+        /* Sunny/Cloudy - Primary Blue */
+        .w-sunny { background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%); }
+        /* Cloudy - Slate Blue (Greyish but matched) */
+        .w-cloudy { background: linear-gradient(135deg, #94A3B8 0%, #475569 100%); }
+        /* Rainy - Indigo (Darker Blue) */
+        .w-rainy { background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%); }
+
         .weather-left { display: flex; align-items: center; gap: 15px; }
         .weather-icon { font-size: 2rem; }
         .weather-temp { font-size: 1.4rem; font-weight: bold; }
@@ -66,7 +72,7 @@
         .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
         .card-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
         
-        /* Language Cards (New) */
+        /* Language Cards */
         .lang-container { padding: 20px 15px; }
         .lang-category { margin-bottom: 30px; }
         .lang-category-title { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 5px solid var(--accent); padding-left: 10px; display: flex; align-items: center; gap: 10px;}
@@ -139,16 +145,18 @@
         <div class="timeline-container">
             
             <div id="day-1" class="day-schedule active">
-                <div class="daily-weather">
+                
+                <div class="daily-weather w-sunny">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
                         <div>
                             <div class="weather-temp">16°C / 9°C</div>
-                            <div class="weather-desc">晴時多雲 (預測)</div>
+                            <div class="weather-desc">晴時多雲</div>
                         </div>
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">08:10 - 11:15</div>
@@ -178,16 +186,18 @@
             </div>
 
             <div id="day-2" class="day-schedule">
-                <div class="daily-weather">
+                
+                <div class="daily-weather w-sunny">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-sun"></i></div>
                         <div>
                             <div class="weather-temp">15°C / 8°C</div>
-                            <div class="weather-desc">晴朗舒適 (預測)</div>
+                            <div class="weather-desc">晴朗舒適</div>
                         </div>
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">10:00</div>
@@ -237,23 +247,25 @@
             </div>
 
             <div id="day-3" class="day-schedule">
-                <div class="daily-weather">
+                
+                <div class="daily-weather w-cloudy">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-cloud"></i></div>
                         <div>
                             <div class="weather-temp">14°C / 7°C</div>
-                            <div class="weather-desc">多雲時陰 (預測)</div>
+                            <div class="weather-desc">多雲時陰</div>
                         </div>
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
+
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">10:00</div>
                     <div class="card">
-                        <div class="card-title">☕ 大濠公園 (Morning)</div>
-                        <div class="card-desc">湖邊散步 & 星巴克概念店</div>
-                         <button class="action-btn dark" onclick="openTaxi('大濠公園', '福岡市中央区大濠公園 1-2')">
+                        <div class="card-title">🍚 早餐: 一膳めし 青木堂</div>
+                        <div class="card-desc">大名區的老牌食堂</div>
+                        <button class="action-btn dark" onclick="openTaxi('一膳めし 青木堂', '福岡市中央区大名 1-11-28')">
                             <i class="fas fa-language"></i> 顯示目的地
                         </button>
                     </div>
@@ -262,8 +274,8 @@
                     <div class="timeline-dot"></div>
                     <div class="time">12:30 - 14:00</div>
                     <div class="card">
-                        <div class="card-title">🍽️ 午餐: 大名區</div>
-                        <div class="card-desc">推薦：Chikae (稚加榮) 明太子午餐<br>或 Ippudo 本店</div>
+                        <div class="card-title">🍽️ 午餐: 稚加榮</div>
+                        <div class="card-desc">明太子午餐定食<br>※ 如青木堂沒開，可改來這吃早午餐</div>
                          <button class="action-btn dark" onclick="openTaxi('稚加栄 (本店)', '福岡市中央区大名 2-2-17')">
                             <i class="fas fa-language"></i> 顯示目的地
                         </button>
@@ -288,16 +300,18 @@
             </div>
 
             <div id="day-4" class="day-schedule">
-                <div class="daily-weather">
+                
+                <div class="daily-weather w-rainy">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-cloud-sun-rain"></i></div>
                         <div>
                             <div class="weather-temp">13°C / 8°C</div>
-                            <div class="weather-desc">短暫雨/陰 (預測)</div>
+                            <div class="weather-desc">短暫雨/陰</div>
                         </div>
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">09:30</div>
@@ -318,6 +332,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -503,7 +518,6 @@
             document.querySelectorAll('.bottom-nav .nav-item').forEach(el => el.classList.remove('active'));
             document.getElementById('view-' + viewId).classList.add('active');
             
-            // Map indexes: Itinerary=0, Checklist=1, Language=2
             const indexes = {'itinerary':0, 'checklist':1, 'language':2};
             if(indexes[viewId] !== undefined) {
                 document.querySelectorAll('.bottom-nav .nav-item')[indexes[viewId]].classList.add('active');
@@ -559,17 +573,38 @@
             }
         });
 
-        // Speech Synthesis Logic
+        // Speech Synthesis Logic (Enhanced)
         function speakJapanese(text) {
             if ('speechSynthesis' in window) {
+                // Cancel current speech if any
+                window.speechSynthesis.cancel();
+
                 const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'ja-JP'; // Set language to Japanese
-                utterance.rate = 0.9; // Slightly slower for clarity
+                utterance.rate = 0.9;
+                
+                // FORCE JAPANESE VOICE
+                // This part iterates through available voices to find one that is strictly Japanese
+                let voices = window.speechSynthesis.getVoices();
+                let jpVoice = voices.find(voice => voice.lang === 'ja-JP' || voice.lang === 'ja_JP');
+                
+                if (jpVoice) {
+                    utterance.voice = jpVoice;
+                    utterance.lang = 'ja-JP';
+                } else {
+                    // Fallback
+                    utterance.lang = 'ja-JP';
+                }
+
                 window.speechSynthesis.speak(utterance);
             } else {
                 alert("抱歉，您的手機不支援語音功能。");
             }
         }
+        
+        // Ensure voices are loaded (for Chrome/Android)
+        window.speechSynthesis.onvoiceschanged = function() {
+            window.speechSynthesis.getVoices();
+        };
     </script>
 </body>
 </html>
