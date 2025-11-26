@@ -22,13 +22,11 @@
             margin: 0; padding: 0; padding-bottom: 90px;
             -webkit-tap-highlight-color: transparent;
         }
-        /* Header */
         header { background: var(--primary); color: white; padding: 20px 15px 15px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .header-top { display: flex; justify-content: space-between; align-items: center; }
         .app-title { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
         .trip-info { font-size: 0.85rem; opacity: 0.9; margin-top: 5px; }
         
-        /* Views & Tabs */
         .view-section { display: none; animation: fadeIn 0.3s ease; }
         .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
@@ -37,7 +35,6 @@
         .tab { flex: 0 0 auto; padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; color: var(--text-light); background: #f3f4f6; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
         .tab.active { background: var(--primary); color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3); }
 
-        /* Weather Widget */
         .daily-weather { color: white; border-radius: 12px; padding: 15px 20px; margin-bottom: 25px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0, 0.1); }
         .w-sunny { background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%); }
         .w-cloudy { background: linear-gradient(135deg, #94A3B8 0%, #475569 100%); }
@@ -48,7 +45,6 @@
         .weather-desc { font-size: 0.9rem; opacity: 0.9; }
         .weather-link { color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 4px 8px; border-radius: 4px; }
 
-        /* Timeline */
         .timeline-container { padding: 15px; }
         .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
@@ -59,11 +55,9 @@
         .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
         .card-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
         
-        /* Option Tags */
         .opt-group { display: flex; gap: 10px; margin-bottom: 10px; }
         .opt-tag { background: #EEF2FF; color: #4F46E5; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; border: 1px solid #C7D2FE; }
         
-        /* Language Cards */
         .lang-container { padding: 20px 15px; }
         .lang-category { margin-bottom: 30px; }
         .lang-category-title { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 5px solid var(--accent); padding-left: 10px; display: flex; align-items: center; gap: 10px;}
@@ -75,11 +69,9 @@
         .speak-btn { background: #EFF6FF; color: var(--primary); border: none; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 15px; transition: background 0.2s; }
         .speak-btn:active { background: #DBEAFE; transform: scale(0.95); }
 
-        /* Helpers */
         .action-btn { display: block; width: 100%; padding: 10px; margin-top: 10px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; }
         .action-btn.dark { background: #1F2937; color: white; border-color: #1F2937; }
         
-        /* Checklist */
         .checklist-container { padding: 20px 15px; }
         .progress-container { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
         .progress-bar-bg { width: 100%; height: 10px; background: #E5E7EB; border-radius: 5px; margin-top: 10px; overflow: hidden; }
@@ -92,13 +84,11 @@
         .check-circle { width: 22px; height: 22px; border: 2px solid #D1D5DB; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; }
         .check-item.checked .check-circle { background: var(--success); border-color: var(--success); color: white; }
 
-        /* Bottom Nav */
         .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #e5e7eb; z-index: 99; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
         .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: var(--text-light); border: none; background: none; cursor: pointer; }
         .nav-item i { font-size: 1.2rem; margin-bottom: 3px; }
         .nav-item.active { color: var(--primary); }
 
-        /* Modal */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
         .modal-content { background: white; padding: 30px 20px; border-radius: 15px; width: 100%; max-width: 400px; text-align: center; position: relative; }
         .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #999; cursor: pointer; }
@@ -132,6 +122,15 @@
                         <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
                         <div><div class="weather-temp">16°C / 9°C</div><div class="weather-desc">晴時多雲</div></div>
                     </div>
+                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="time">08:10 - 11:15</div>
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-plane"></i> TPE ✈️ FUK</div>
+                        <div class="card-desc">BR106 | 飛行時間 2h05m</div>
+                    </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -147,39 +146,30 @@
                     <div class="timeline-dot"></div>
                     <div class="time">13:30 - 15:00</div>
                     <div class="card">
-                        <div class="card-title">🍽️ 午餐: 天神/大名</div>
-                        <div class="opt-group">
-                            <span class="opt-tag">選項 A</span>
-                            <span class="opt-tag">選項 B</span>
-                        </div>
-                        <div class="card-desc">
-                            <b>A. 拉麵海鳴 (Ramen Unari):</b> 魚介豚骨湯頭，大名店。<br>
-                            <b>B. dacō (Amam Dacotan姐妹店):</b> 精緻麵包/咖啡，適合輕食。
-                        </div>
-                        <button class="action-btn dark" onclick="openTaxi('ラーメン海鳴 (天神店)', '福岡市中央区大名 1-12-3')"><i class="fas fa-map-marker-alt"></i> 去拉麵海鳴</button>
+                        <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 天神/大名</div>
+                        <div class="opt-group"><span class="opt-tag">選項 A</span><span class="opt-tag">選項 B</span></div>
+                        <div class="card-desc"><b>A. 拉麵海鳴:</b> 魚介豚骨湯頭<br><b>B. dacō:</b> 精緻麵包咖啡</div>
+                        <button class="action-btn dark" onclick="openTaxi('大名エリア (大名區)', '福岡市中央区大名')"><i class="fas fa-map-marker-alt"></i> 前往大名區 (Daimyo)</button>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">15:00 - 18:00</div>
                     <div class="card">
-                        <div class="card-title">🛍️ 大名區潮流巡禮</div>
+                        <div class="card-title"><i class="fas fa-shopping-bag"></i> 大名區潮流巡禮</div>
                         <div class="card-desc">
-                            重點店家 (步行可達)：<br>
-                            - <b>THE NORTH FACE</b> (大名店)<br>
-                            - <b>nanamica FUKUOKA</b><br>
-                            - <b>Step Sports</b> (跑鞋)<br>
-                            - <b>Blue Bottle Coffee</b> (警固神社內)
+                            <b>THE NORTH FACE</b> (大名店)<br>
+                            <b>nanamica</b>, <b>Step Sports</b><br>
+                            <b>Blue Bottle Coffee</b> (警固神社)
                         </div>
-                         <button class="action-btn dark" onclick="openTaxi('THE NORTH FACE 福岡', '福岡市中央区大名 2-1-11')"><i class="fas fa-map-marker-alt"></i> 前往 TNF/Nanamica 區</button>
                     </div>
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">19:00</div>
                     <div class="card">
-                        <div class="card-title">🍜 晚餐: 一蘭本社</div>
-                        <div class="card-desc">一蘭拉麵總本店 (整棟掛燈籠那間)</div>
+                        <div class="card-title"><i class="fas fa-utensils"></i> 晚餐: 一蘭本社</div>
+                        <div class="card-desc">一蘭拉麵總本店 (整棟掛燈籠)</div>
                         <button class="action-btn dark" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')"><i class="fas fa-language"></i> 顯示地址</button>
                     </div>
                 </div>
@@ -191,13 +181,14 @@
                         <div class="weather-icon"><i class="fas fa-sun"></i></div>
                         <div><div class="weather-temp">15°C / 8°C</div><div class="weather-desc">晴朗舒適</div></div>
                     </div>
+                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">10:00</div>
                     <div class="card">
-                        <div class="card-title">🥐 早餐: Dacomecca</div>
-                        <div class="card-desc">博多超人氣麵包店 (建議早到)</div>
+                        <div class="card-title"><i class="fas fa-coffee"></i> 早餐: Dacomecca</div>
+                        <div class="card-desc">博多超人氣麵包店</div>
                          <button class="action-btn dark" onclick="openTaxi('Dacomecca (ダコメッカ)', '福岡市博多区博多駅前 4-14-1')">
                             <i class="fas fa-language"></i> 顯示目的地
                         </button>
@@ -207,20 +198,16 @@
                     <div class="timeline-dot"></div>
                     <div class="time">11:30 - 14:00</div>
                     <div class="card">
-                        <div class="card-title">🛍️ 博多站攻略</div>
-                        <div class="card-desc">
-                            <b>JR 博多城 (Amu Plaza):</b><br>
-                            - <b>Pokémon Center</b> (8F)<br>
-                            - <b>Fuk Coffee</b> (附近咖啡廳)
-                        </div>
+                        <div class="card-title"><i class="fas fa-shopping-cart"></i> 博多站攻略</div>
+                        <div class="card-desc"><b>Pokémon Center</b> (Amu 8F)<br><b>Fuk Coffee</b> (附近)</div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">14:00</div>
                     <div class="card">
-                        <div class="card-title">🍲 午餐: 牛腸鍋</div>
-                        <div class="card-desc"><b>博多牛雜鍋 前田屋 (博多店)</b><br>人氣名店，需排隊。</div>
+                        <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 牛腸鍋</div>
+                        <div class="card-desc"><b>博多牛雜鍋 前田屋 (博多店)</b></div>
                          <button class="action-btn dark" onclick="openTaxi('博多もつ鍋 前田屋 (博多店)', '福岡市博多区博多駅東 2-4-9')">
                             <i class="fas fa-language"></i> 顯示目的地
                         </button>
@@ -228,10 +215,21 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="time">16:00 - 18:30</div>
+                    <div class="time">15:30 - 17:30</div>
                     <div class="card">
-                        <div class="card-title">🗼 景點: 福岡塔</div>
-                        <div class="card-desc">散步看夕陽 (如果不想逛街的話)。<br><i>*備案：如果下雨，可改去 LaLaport 鋼彈。</i></div>
+                        <div class="card-title"><i class="fas fa-store"></i> 博多運河城</div>
+                        <div class="card-desc">Canal City Hakata<br>音樂噴泉與逛街</div>
+                        <button class="action-btn dark" onclick="openTaxi('キャナルシティ博多', '福岡市博多区住吉 1-2')">
+                            <i class="fas fa-map-marker-alt"></i> 去運河城
+                        </button>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="time">18:00</div>
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-camera"></i> 景點: 福岡塔</div>
+                        <div class="card-desc">散步看夕陽/夜景</div>
                         <button class="action-btn dark" onclick="openTaxi('福岡タワー', '福岡市早良区百道浜 2-3-26')">
                             <i class="fas fa-language"></i> 顯示福岡塔
                         </button>
@@ -245,17 +243,25 @@
                         <div class="weather-icon"><i class="fas fa-cloud"></i></div>
                         <div><div class="weather-temp">14°C / 7°C</div><div class="weather-desc">多雲時陰</div></div>
                     </div>
+                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="time">10:00</div>
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-utensils"></i> 早餐: 一膳めし 青木堂</div>
+                        <div class="card-desc">大名區老牌定食屋</div>
+                         <button class="action-btn dark" onclick="openTaxi('一膳めし 青木堂', '福岡市中央区大名 1-11-28')">
+                            <i class="fas fa-language"></i> 顯示目的地
+                        </button>
+                    </div>
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="time">10:00 - 13:00</div>
+                    <div class="time">11:30 - 14:00</div>
                     <div class="card">
-                        <div class="card-title">🛍️ 天神百貨巡禮 (上)</div>
-                        <div class="card-desc">
-                            - <b>ONE FUKUOKA Bldg</b> (新地標)<br>
-                            - <b>福岡 PARCO</b> (潮流雜貨)<br>
-                            - <b>Full full</b> (明太子法國麵包)
-                        </div>
+                        <div class="card-title"><i class="fas fa-shopping-bag"></i> 天神百貨 (上)</div>
+                        <div class="card-desc"><b>ONE FUKUOKA Bldg</b><br><b>福岡 PARCO</b><br><b>Full full</b> (明太子法棍)</div>
                          <button class="action-btn dark" onclick="openTaxi('福岡PARCO', '福岡市中央区天神 2-11-1')">
                             <i class="fas fa-language"></i> 顯示目的地
                         </button>
@@ -263,10 +269,10 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="time">13:00 - 14:30</div>
+                    <div class="time">14:00</div>
                     <div class="card">
-                        <div class="card-title">🍞 午餐/點心: Pain Stock</div>
-                        <div class="card-desc"><b>Pain Stock 天神店</b> (Stock)<br>有名的麵包名店，可買回飯店或在附近公園吃。</div>
+                        <div class="card-title"><i class="fas fa-bread-slice"></i> 午餐: Pain Stock</div>
+                        <div class="card-desc"><b>Pain Stock 天神店</b><br>可買回飯店或在附近公園吃。</div>
                          <button class="action-btn dark" onclick="openTaxi('pain stock (天神店)', '福岡市中央区西中洲 6-17')">
                             <i class="fas fa-language"></i> 顯示目的地
                         </button>
@@ -274,13 +280,13 @@
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="time">14:30 - 18:00</div>
+                    <div class="time">15:00 - 18:30</div>
                     <div class="card">
-                        <div class="card-title">🛍️ 天神百貨巡禮 (下)</div>
+                        <div class="card-title"><i class="fas fa-shopping-bag"></i> 天神百貨 (下)</div>
                         <div class="card-desc">
-                            - <b>SHIRO</b> (岩田屋本店 1F)<br>
-                            - <b>mont-bell</b> (Vioro 5F)<br>
-                            - <b>BIC CAMERA 天神2館</b> (電器)
+                            <b>SHIRO</b> (岩田屋)<br>
+                            <b>mont-bell</b> (Vioro)<br>
+                            <b>BIC CAMERA 天神2館</b>
                         </div>
                         <button class="action-btn dark" onclick="openTaxi('ビックカメラ 天神2号館', '福岡市中央区天神 2-4-5')">
                             <i class="fas fa-map-marker-alt"></i> 去 BIC CAMERA
@@ -289,9 +295,9 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="time">18:30</div>
+                    <div class="time">19:00</div>
                     <div class="card">
-                        <div class="card-title">🥩 晚餐: 自由活動</div>
+                        <div class="card-title"><i class="fas fa-utensils"></i> 晚餐: 自由活動</div>
                         <div class="card-desc">燒肉或居酒屋 (天神周邊)</div>
                     </div>
                 </div>
@@ -303,12 +309,13 @@
                         <div class="weather-icon"><i class="fas fa-cloud-sun-rain"></i></div>
                         <div><div class="weather-temp">13°C / 8°C</div><div class="weather-desc">短暫雨/陰</div></div>
                     </div>
+                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">09:30</div>
                     <div class="card">
-                        <div class="card-title">🚕 退房 & 前往機場</div>
+                        <div class="card-title"><i class="fas fa-taxi"></i> 退房 & 前往機場</div>
                         <div class="card-desc">週三早晨可能塞車，早點出發。</div>
                          <button class="action-btn dark" onclick="openTaxi('福岡空港 国際線ターミナル', 'International Terminal')">
                             <i class="fas fa-language"></i> 顯示目的地
@@ -319,7 +326,7 @@
                     <div class="timeline-dot"></div>
                     <div class="time">12:15 - 13:50</div>
                     <div class="card">
-                        <div class="card-title">✈️ BR105 回程</div>
+                        <div class="card-title"><i class="fas fa-plane"></i> BR105 回程</div>
                         <div class="card-desc">FUK ✈️ TPE</div>
                     </div>
                 </div>
@@ -333,6 +340,7 @@
                 <div style="display:flex; justify-content:space-between;"><span>準備進度</span><span id="progress-text" style="color:var(--success); font-weight:bold;">0%</span></div>
                 <div class="progress-bar-bg"><div id="progress-fill" class="progress-bar-fill"></div></div>
             </div>
+            
             <div class="check-category">
                 <div class="category-title">🪪 證件/錢包</div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">護照</div></div>
@@ -533,17 +541,14 @@
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.rate = 0.9;
                 
-                // Try to get voices
                 let voices = window.speechSynthesis.getVoices();
                 
-                // Strategy: Look for specific female voice names known in iOS/Android
-                // Kyoko (iOS), O-ren (iOS), Google 日本語 (Android - usually female default), Haruka (Windows)
+                // Look for female Japanese voices
                 let targetVoice = voices.find(v => 
                     (v.lang === 'ja-JP' || v.lang === 'ja_JP') && 
                     (v.name.includes('Kyoko') || v.name.includes('O-ren') || v.name.includes('Google') || v.name.includes('Female'))
                 );
 
-                // Fallback: Just any Japanese voice
                 if (!targetVoice) {
                     targetVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja_JP');
                 }
