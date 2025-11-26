@@ -25,7 +25,6 @@
         /* Header */
         header { background: var(--primary); color: white; padding: 20px 15px 15px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .header-top { display: flex; justify-content: space-between; align-items: center; }
-        /* Title Style */
         .app-title { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
         .trip-info { font-size: 0.85rem; opacity: 0.9; margin-top: 5px; }
         
@@ -60,7 +59,6 @@
         .timeline-container { padding: 15px; }
         .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
-        
         .timeline-item { position: relative; padding-left: 30px; margin-bottom: 25px; border-left: 2px solid #e5e7eb; }
         .timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px var(--primary); }
         .time { font-size: 0.85rem; color: var(--text-light); font-weight: 600; margin-bottom: 5px; }
@@ -68,7 +66,28 @@
         .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
         .card-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
         
-        /* Helpers & Components */
+        /* Language Cards (New) */
+        .lang-container { padding: 20px 15px; }
+        .lang-category { margin-bottom: 30px; }
+        .lang-category-title { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 5px solid var(--accent); padding-left: 10px; display: flex; align-items: center; gap: 10px;}
+        .lang-card { 
+            background: white; border-radius: 12px; padding: 15px; margin-bottom: 12px; 
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .lang-text-group { flex-grow: 1; }
+        .lang-cn { font-size: 0.95rem; font-weight: bold; color: var(--text); margin-bottom: 4px; }
+        .lang-jp { font-size: 1.2rem; color: var(--primary); font-weight: bold; margin-bottom: 4px; }
+        .lang-roma { font-size: 0.8rem; color: #9CA3AF; font-style: italic; }
+        .speak-btn {
+            background: #EFF6FF; color: var(--primary); border: none; width: 45px; height: 45px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 15px;
+            transition: background 0.2s;
+        }
+        .speak-btn:active { background: #DBEAFE; transform: scale(0.95); }
+
+        /* Helpers */
         .action-btn { display: block; width: 100%; padding: 10px; margin-top: 10px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; }
         .action-btn.dark { background: #1F2937; color: white; border-color: #1F2937; }
         
@@ -120,7 +139,6 @@
         <div class="timeline-container">
             
             <div id="day-1" class="day-schedule active">
-                
                 <div class="daily-weather">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
@@ -131,7 +149,6 @@
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">08:10 - 11:15</div>
@@ -161,7 +178,6 @@
             </div>
 
             <div id="day-2" class="day-schedule">
-                
                 <div class="daily-weather">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-sun"></i></div>
@@ -172,7 +188,6 @@
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">10:00</div>
@@ -222,7 +237,6 @@
             </div>
 
             <div id="day-3" class="day-schedule">
-                
                 <div class="daily-weather">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-cloud"></i></div>
@@ -233,7 +247,6 @@
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
-
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">10:00</div>
@@ -275,7 +288,6 @@
             </div>
 
             <div id="day-4" class="day-schedule">
-                
                 <div class="daily-weather">
                     <div class="weather-left">
                         <div class="weather-icon"><i class="fas fa-cloud-sun-rain"></i></div>
@@ -286,7 +298,6 @@
                     </div>
                     <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">09:30</div>
@@ -307,7 +318,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -325,14 +335,12 @@
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">日幣現金</div></div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">信用卡 (JCB/Visa)</div></div>
             </div>
-
             <div class="check-category">
                 <div class="category-title">👕 衣物類</div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">內衣褲 (4天份)</div></div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">外套 (保暖/防風)</div></div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">衣服 (外衣/褲子)</div></div>
             </div>
-
             <div class="check-category">
                 <div class="category-title">🧴 個人用品類</div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">牙刷 / 牙膏</div></div>
@@ -340,7 +348,6 @@
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">保養品 (乳液/防曬)</div></div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
             </div>
-
              <div class="check-category">
                 <div class="category-title">🔌 3C/雜物</div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">行動電源</div></div>
@@ -350,10 +357,133 @@
         </div>
     </div>
 
+    <div id="view-language" class="view-section">
+        <div class="lang-container">
+            
+            <div class="lang-category">
+                <div class="lang-category-title"><i class="fas fa-star"></i> 萬用神句</div>
+                
+                <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">不好意思 / 請問...</div>
+                        <div class="lang-jp">すみません</div>
+                        <div class="lang-roma">Sumima-sen</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('すみません')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">謝謝</div>
+                        <div class="lang-jp">ありがとうございます</div>
+                        <div class="lang-roma">Arigatou gozai-masu</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('ありがとうございます')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                 <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">廁所在哪裡？</div>
+                        <div class="lang-jp">トイレはどこですか？</div>
+                        <div class="lang-roma">Toire wa doko desu ka?</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('トイレはどこですか？')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">請給我這個</div>
+                        <div class="lang-jp">これをください</div>
+                        <div class="lang-roma">Kore wo kudasai</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('これをください')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                 <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">沒關係 / 不用了</div>
+                        <div class="lang-jp">大丈夫です</div>
+                        <div class="lang-roma">Dai-jou-bu desu</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('大丈夫です')"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+
+             <div class="lang-category">
+                <div class="lang-category-title"><i class="fas fa-taxi"></i> 計程車</div>
+                <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">請載我到這裡</div>
+                        <div class="lang-jp">ここまでお願いします</div>
+                        <div class="lang-roma">Koko made onegai-shimasu</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('ここまでお願いします')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                 <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">可以刷卡嗎？</div>
+                        <div class="lang-jp">カードは使えますか？</div>
+                        <div class="lang-roma">Ka-do wa tsukae-masuka?</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('カードは使えますか')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                 <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">請在這裡停車</div>
+                        <div class="lang-jp">ここで降ろしてください</div>
+                        <div class="lang-roma">Koko de oroshite kudasai</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('ここで降ろしてください')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">後車箱要放行李</div>
+                        <div class="lang-jp">トランクを開けてください</div>
+                        <div class="lang-roma">Toranku wo akete kudasai</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('トランクを開けてください')"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+
+            <div class="lang-category">
+                <div class="lang-category-title"><i class="fas fa-shopping-bag"></i> 購物與餐廳</div>
+                <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">有推薦的嗎？</div>
+                        <div class="lang-jp">おすすめはありますか？</div>
+                        <div class="lang-roma">Osusume wa ari-masuka?</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('おすすめはありますか')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                 <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">這多少錢？</div>
+                        <div class="lang-jp">これはいくらですか？</div>
+                        <div class="lang-roma">Kore wa ikura desu ka?</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('これはいくらですか')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                 <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">可以免稅嗎？</div>
+                        <div class="lang-jp">免税できますか？</div>
+                        <div class="lang-roma">Menzei deki-masuka?</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('免税できますか')"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="lang-card">
+                    <div class="lang-text-group">
+                        <div class="lang-cn">我要結帳</div>
+                        <div class="lang-jp">お会計をお願いします</div>
+                        <div class="lang-roma">Okaikei wo onegai-shimasu</div>
+                    </div>
+                    <button class="speak-btn" onclick="speakJapanese('お会計をお願いします')"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="bottom-nav">
         <button class="nav-item active" onclick="switchView('itinerary')"><i class="fas fa-calendar-alt"></i><span>行程</span></button>
         <button class="nav-item" onclick="switchView('checklist')"><i class="fas fa-check-square"></i><span>清單</span></button>
-        <button class="nav-item" onclick="window.open('https://www.google.com/maps/search/Gate+Hotel+Fukuoka/@33.591026,130.3991276,17z', '_blank')"><i class="fas fa-map-marked-alt"></i><span>地圖</span></button>
+        <button class="nav-item" onclick="switchView('language')"><i class="fas fa-language"></i><span>日語</span></button>
     </div>
 
     <div id="taxiModal" class="modal" onclick="closeTaxi()">
@@ -372,8 +502,12 @@
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.bottom-nav .nav-item').forEach(el => el.classList.remove('active'));
             document.getElementById('view-' + viewId).classList.add('active');
-            if(viewId === 'itinerary') document.querySelectorAll('.bottom-nav .nav-item')[0].classList.add('active');
-            if(viewId === 'checklist') document.querySelectorAll('.bottom-nav .nav-item')[1].classList.add('active');
+            
+            // Map indexes: Itinerary=0, Checklist=1, Language=2
+            const indexes = {'itinerary':0, 'checklist':1, 'language':2};
+            if(indexes[viewId] !== undefined) {
+                document.querySelectorAll('.bottom-nav .nav-item')[indexes[viewId]].classList.add('active');
+            }
         }
 
         // Date Switching
@@ -424,6 +558,18 @@
                 saveProgress();
             }
         });
+
+        // Speech Synthesis Logic
+        function speakJapanese(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP'; // Set language to Japanese
+                utterance.rate = 0.9; // Slightly slower for clarity
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("抱歉，您的手機不支援語音功能。");
+            }
+        }
     </script>
 </body>
 </html>
