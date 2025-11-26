@@ -10,169 +10,170 @@
             --primary: #2563EB;
             --primary-dark: #1D4ED8;
             --accent: #F59E0B;
-            --bg: #F8FAFC;
+            --bg: #F1F5F9; /* 背景稍微加深一點點，對比白卡片 */
             --card-bg: #FFFFFF;
             --text: #334155;
-            --text-light: #94A3B8;
+            --text-light: #64748B;
             --success: #10B981;
-            --calc-bg: #1E293B;
+            --calc-bg: #334155; /* 稍微淺一點的深色 */
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            margin: 0; padding: 0; padding-bottom: 100px;
+            margin: 0; padding: 0; padding-bottom: 80px; /* 底部留白減少 */
             -webkit-tap-highlight-color: transparent;
+            line-height: 1.4;
         }
         
         /* Header */
         header { 
             background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
-            color: white; padding: 20px 15px 15px; 
+            color: white; padding: 15px 15px 12px; /* 稍微縮減 */
             position: sticky; top: 0; z-index: 100; 
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); 
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2); 
         }
         .header-top { display: flex; justify-content: space-between; align-items: center; }
-        .app-title { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
-        .trip-info { font-size: 0.85rem; opacity: 0.95; margin-top: 6px; font-weight: 500; }
+        .app-title { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+        .trip-info { font-size: 0.8rem; opacity: 0.9; margin-top: 4px; font-weight: 500; }
         
-        /* Views & Tabs */
-        .view-section { display: none; animation: fadeIn 0.3s ease; }
+        /* Views */
+        .view-section { display: none; animation: fadeIn 0.2s ease; }
         .view-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
         
-        .date-tabs { display: flex; background: white; padding: 10px 8px; overflow-x: auto; border-bottom: 1px solid #e2e8f0; scrollbar-width: none; gap: 8px; }
-        .tab { flex: 0 0 auto; padding: 8px 16px; border-radius: 25px; font-size: 0.9rem; color: var(--text-light); background: #f1f5f9; cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; }
-        .tab.active { background: var(--primary); color: white; box-shadow: 0 3px 5px rgba(37, 99, 235, 0.2); }
+        /* Tabs (Top) */
+        .date-tabs { display: flex; background: white; padding: 8px 5px; overflow-x: auto; border-bottom: 1px solid #e2e8f0; scrollbar-width: none; gap: 6px; }
+        .tab { flex: 0 0 auto; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; color: var(--text-light); background: #f8fafc; cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; border: 1px solid #e2e8f0;}
+        .tab.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2); }
 
-        /* Weather Widget (Compact Version) */
+        /* Weather (Compact) */
         .daily-weather { 
-            color: white; border-radius: 12px; 
-            padding: 12px 15px; /* Reduced padding */
-            margin-bottom: 15px; 
+            color: white; border-radius: 10px; 
+            padding: 10px 15px; margin-bottom: 12px; 
             display: flex; flex-direction: column; 
-            box-shadow: 0 4px 8px rgba(0,0,0, 0.05); 
+            box-shadow: 0 2px 5px rgba(0,0,0, 0.05); 
         }
         .w-main { display: flex; align-items: center; justify-content: space-between; width: 100%; }
         .w-sunny { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); }
         .w-cloudy { background: linear-gradient(135deg, #94A3B8 0%, #475569 100%); }
         .w-rainy { background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%); }
-        
         .weather-left { display: flex; align-items: center; gap: 10px; }
-        .weather-icon { font-size: 1.8rem; } /* Smaller icon */
-        .weather-temp { font-size: 1.3rem; font-weight: 800; line-height: 1.1; } /* Smaller temp */
+        .weather-icon { font-size: 1.5rem; }
+        .weather-temp { font-size: 1.2rem; font-weight: 800; }
         .weather-desc { font-size: 0.8rem; opacity: 0.9; }
-        .weather-link { color: white; text-decoration: none; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.5); padding: 3px 8px; border-radius: 15px; }
-        .weather-wear { 
-            margin-top: 8px; padding-top: 8px; /* Tighter spacing */
-            border-top: 1px solid rgba(255,255,255,0.2); 
-            font-size: 0.85rem; 
-            display: flex; align-items: center; gap: 8px; line-height: 1.3; font-weight: 500; 
-        }
+        .weather-link { color: white; text-decoration: none; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.4); padding: 2px 8px; border-radius: 12px; }
+        .weather-wear { margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.8rem; display: flex; align-items: center; gap: 6px; line-height: 1.2; }
 
-        /* Timeline */
-        .timeline-container { padding: 15px; }
-        .day-schedule { display: none; }
-        .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
-        .timeline-item { position: relative; padding-left: 35px; margin-bottom: 25px; border-left: 2px solid #cbd5e1; }
-        .timeline-dot { position: absolute; left: -6px; top: 0; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--primary); }
-        .time { font-size: 0.9rem; color: var(--text-light); font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px; }
-        .card { background: var(--card-bg); border-radius: 16px; padding: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
-        .card-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; color: var(--text); }
-        .card-desc { font-size: 0.95rem; color: #64748b; line-height: 1.6; }
+        /* Timeline (Compact) */
+        .timeline-container { padding: 12px; }
+        .timeline-item { position: relative; padding-left: 28px; margin-bottom: 20px; border-left: 2px solid #cbd5e1; }
+        .timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px var(--primary); }
+        .time { font-size: 0.85rem; color: var(--text-light); font-weight: 700; margin-bottom: 4px; }
+        .card { 
+            background: var(--card-bg); border-radius: 10px; 
+            padding: 12px 15px; /* Reduced Padding */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; 
+        }
+        .card-title { font-size: 1rem; font-weight: 800; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; color: var(--text); }
+        .card-desc { font-size: 0.9rem; color: #475569; line-height: 1.5; }
         
-        .opt-group { display: flex; gap: 10px; margin-bottom: 12px; }
-        .opt-tag { background: #EEF2FF; color: var(--primary); padding: 6px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; border: 1px solid #BFDBFE; }
+        .opt-group { display: flex; gap: 8px; margin-bottom: 8px; }
+        .opt-tag { background: #EEF2FF; color: var(--primary); padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; border: 1px solid #BFDBFE; }
         
-        /* Calculator */
-        .calc-container { padding: 20px; }
-        .rate-box { background: var(--calc-bg); color: white; padding: 20px; border-radius: 16px; text-align: center; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        .calc-card { background: white; padding: 25px 20px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 20px; border: 1px solid #f1f5f9; }
-        .calc-title { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .calc-section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        /* Action Buttons (Smaller) */
+        .action-btn { 
+            display: block; width: 100%; padding: 8px; margin-top: 10px; 
+            background: #EFF6FF; color: var(--primary); text-align: center; 
+            border-radius: 8px; text-decoration: none; font-weight: 700; 
+            border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; 
+            font-size: 0.85rem; transition: all 0.2s; 
+        }
+        .action-btn.dark { background: #334155; color: white; border-color: #334155; }
+        .action-btn:active { opacity: 0.9; transform: scale(0.99); }
+
+        /* Calculator (Compact) */
+        .calc-container { padding: 15px; }
+        .rate-box { 
+            background: var(--calc-bg); color: white; padding: 10px; 
+            border-radius: 10px; text-align: center; font-size: 1rem; font-weight: 600; 
+            margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        }
+        .calc-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); margin-bottom: 15px; border: 1px solid #e2e8f0; }
+        .calc-title { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .calc-section { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px dashed #e2e8f0; }
         .calc-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-        .calc-input-group { position: relative; margin-bottom: 15px; }
+        .calc-input-group { position: relative; margin-bottom: 10px; }
         
-        /* Numeric Input Styling */
+        /* Input (Smaller) */
         .calc-input { 
-            width: 100%; padding: 15px; font-size: 1.8rem; 
-            border: 2px solid #e2e8f0; border-radius: 12px; 
-            box-sizing: border-box; font-weight: 800; color: var(--primary); 
-            transition: border 0.2s;
-            -moz-appearance: textfield; 
+            width: 100%; padding: 8px 10px; font-size: 1.3rem; /* Smaller font */
+            border: 1px solid #cbd5e1; border-radius: 8px; 
+            box-sizing: border-box; font-weight: 700; color: var(--primary); 
+            transition: border 0.2s; -moz-appearance: textfield; 
         }
-        .calc-input::-webkit-outer-spin-button,
-        .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-        .calc-input:focus { outline: none; border-color: var(--primary); }
+        .calc-input:focus { outline: none; border-color: var(--primary); border-width: 2px; }
+        .calc-label { position: absolute; right: 10px; top: 12px; font-weight: 600; color: #94a3b8; font-size: 0.85rem; }
         
-        .calc-label { position: absolute; right: 15px; top: 22px; font-weight: bold; color: #94a3b8; font-size: 0.9rem; }
-        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .res-label { font-size: 0.95rem; color: #64748b; font-weight: 500; }
-        .res-val { font-size: 1.1rem; font-weight: 800; color: var(--text); }
-        .res-val.good { color: var(--success); font-size: 1.3rem; }
+        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .res-label { font-size: 0.85rem; color: #64748b; font-weight: 500; }
+        .res-val { font-size: 1rem; font-weight: 800; color: var(--text); }
+        .res-val.good { color: var(--success); font-size: 1.1rem; }
 
-        /* Language Cards */
-        .lang-container { padding: 20px 15px; }
-        .lang-category { margin-bottom: 35px; }
-        .lang-category-title { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 6px solid var(--accent); padding-left: 12px; display: flex; align-items: center; gap: 10px;}
-        .lang-card { background: white; border-radius: 16px; padding: 18px; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
-        .lang-text-group { flex-grow: 1; }
-        .lang-cn { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-        .lang-jp { font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 4px; }
-        .lang-roma { font-size: 0.85rem; color: #94a3b8; font-style: italic; font-weight: 500; }
-        .speak-btn { background: #F0F9FF; color: var(--primary); border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; margin-left: 15px; transition: transform 0.1s; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1); }
-        .speak-btn:active { transform: scale(0.9); background: #e0f2fe; }
-
-        /* Components */
-        .action-btn { display: block; width: 100%; padding: 12px; margin-top: 15px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 10px; text-decoration: none; font-weight: 700; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; font-size: 0.95rem; transition: opacity 0.2s; }
-        .action-btn.dark { background: #1e293b; color: white; border-color: #1e293b; }
-        .action-btn:active { opacity: 0.8; }
+        /* Checklists & Lang (Tighter) */
+        .checklist-container, .lang-container { padding: 15px; }
+        .progress-container { background: white; padding: 12px 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; border: 1px solid #e2e8f0; }
+        .progress-bar-bg { width: 100%; height: 8px; background: #f1f5f9; border-radius: 4px; margin-top: 8px; overflow: hidden; }
+        .check-category, .lang-category { margin-bottom: 25px; }
+        .category-title, .lang-category-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; border-left: 4px solid var(--accent); padding-left: 10px; }
         
-        /* Checklist */
-        .checklist-container { padding: 25px 20px; }
-        .progress-container { background: white; padding: 20px; border-radius: 16px; margin-bottom: 25px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
-        .progress-bar-bg { width: 100%; height: 12px; background: #f1f5f9; border-radius: 6px; margin-top: 12px; overflow: hidden; }
-        .progress-bar-fill { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
-        .check-category { margin-bottom: 30px; }
-        .category-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; border-left: 5px solid var(--accent); padding-left: 12px; }
-        .check-item { background: white; padding: 15px 18px; margin-bottom: 10px; border-radius: 12px; display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); cursor: pointer; border: 1px solid #f1f5f9; transition: background 0.2s; }
-        .check-item:active { background: #f8fafc; }
-        .check-item.checked { background: #F0FDF4; border-color: #bbf7d0; }
-        .check-item.checked .item-text { text-decoration: line-through; color: #94a3b8; }
-        .check-circle { width: 24px; height: 24px; border: 2px solid #cbd5e1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-size: 0.8rem; color: transparent; transition: all 0.2s; flex-shrink: 0; }
+        .check-item, .lang-card { 
+            background: white; padding: 10px 12px; /* Tighter padding */
+            margin-bottom: 8px; border-radius: 10px; 
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03); cursor: pointer; 
+            border: 1px solid #e2e8f0; 
+        }
+        .check-circle { width: 20px; height: 20px; border: 2px solid #cbd5e1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.7rem; color: transparent; flex-shrink: 0; }
+        .item-text { font-size: 0.95rem; font-weight: 500; }
         .check-item.checked .check-circle { background: var(--success); border-color: var(--success); color: white; }
-        .item-text { font-size: 1rem; font-weight: 500; color: var(--text); }
+        
+        .lang-cn { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
+        .lang-jp { font-size: 1.1rem; color: var(--primary); font-weight: 700; margin-bottom: 2px; }
+        .lang-roma { font-size: 0.75rem; color: #94a3b8; font-style: italic; }
+        .speak-btn { background: #F0F9FF; color: var(--primary); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
 
-        /* Bottom Nav */
+        /* Bottom Nav (Refined) */
         .bottom-nav { 
             position: fixed; bottom: 0; left: 0; width: 100%; 
-            background: #FFFFFF; 
+            background: #F8FAFC; /* Subtle Background Color */
+            border-top: 1px solid #e2e8f0;
             display: flex; justify-content: space-around; align-items: center;
-            padding: 12px 0; 
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.05); 
+            padding: 8px 0; /* Reduced Padding */
             z-index: 99; 
-            padding-bottom: max(15px, env(safe-area-inset-bottom)); 
+            padding-bottom: max(10px, env(safe-area-inset-bottom)); 
         }
         .nav-item { 
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             border: none; background: none; cursor: pointer; 
-            color: #94a3b8; 
-            transition: all 0.25s; 
-            flex: 1; 
-            padding: 5px;
+            color: #94a3b8; flex: 1; padding: 4px;
+            transition: all 0.2s;
         }
-        .nav-item i { font-size: 1.5rem; margin-bottom: 5px; transition: transform 0.2s; }
-        .nav-item span { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; }
-        .nav-item.active { color: var(--primary); }
-        .nav-item.active i { transform: translateY(-3px); }
+        .nav-item i { font-size: 1.3rem; margin-bottom: 3px; } /* Smaller Icons */
+        .nav-item span { font-size: 0.7rem; font-weight: 600; } /* Smaller Text */
+        .nav-item.active { 
+            color: var(--primary); 
+            background: rgba(37, 99, 235, 0.05); /* Subtle Active Background */
+            border-radius: 12px;
+        }
 
         /* Modal */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(3px); }
-        .modal-content { background: white; padding: 35px 25px; border-radius: 20px; width: 100%; max-width: 400px; text-align: center; position: relative; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: #cbd5e1; cursor: pointer; }
-        .jp-address { font-size: 1.4rem; font-weight: 800; margin: 25px 0; line-height: 1.5; color: black; border: 3px solid black; padding: 20px; border-radius: 12px; word-break: keep-all; background: #fff; }
-        .jp-sub { font-size: 1rem; color: #64748b; margin-bottom: 8px; font-weight: 600; }
-        .jp-title { font-size: 1.6rem; font-weight: 900; color: var(--primary); margin-top: 10px; word-break: keep-all; line-height: 1.3; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(2px); }
+        .modal-content { background: white; padding: 25px 20px; border-radius: 16px; width: 100%; max-width: 350px; text-align: center; position: relative; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+        .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #cbd5e1; cursor: pointer; }
+        .jp-address { font-size: 1.2rem; font-weight: 800; margin: 20px 0; line-height: 1.4; color: black; border: 2px solid black; padding: 15px; border-radius: 10px; word-break: keep-all; background: #fff; }
+        .jp-sub { font-size: 0.9rem; color: #64748b; margin-bottom: 5px; font-weight: 600; }
+        .jp-title { font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-top: 5px; word-break: keep-all; line-height: 1.2; }
     </style>
 </head>
 <body>
@@ -199,9 +200,9 @@
                     <div class="w-main">
                         <div class="weather-left">
                             <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
-                            <div><div class="weather-temp">16°C / 9°C</div><div class="weather-desc">晴時多雲</div></div>
+                            <div><div class="weather-temp">16° / 9°</div><div class="weather-desc">晴時多雲</div></div>
                         </div>
-                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
                     <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>早晚溫差大，建議洋蔥式穿搭，帶件防風外套。</span></div>
                 </div>
@@ -219,7 +220,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-taxi"></i> 抵達/Check-in</div>
                         <button class="action-btn dark" onclick="openTaxi('THE GATE HOTEL 福岡', '福岡市中央区天神 2-8-49')">
-                            <i class="fas fa-language"></i> 顯示飯店地址
+                            <i class="fas fa-map-marker-alt"></i> 顯示飯店地址
                         </button>
                     </div>
                 </div>
@@ -230,7 +231,7 @@
                         <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 天神/大名</div>
                         <div class="opt-group"><span class="opt-tag">選項 A</span><span class="opt-tag">選項 B</span></div>
                         <div class="card-desc"><b>A. 拉麵海鳴:</b> 魚介豚骨湯頭<br><b>B. dacō:</b> 精緻麵包咖啡</div>
-                        <button class="action-btn dark" onclick="openTaxi('大名エリア (大名區)', '福岡市中央区大名')"><i class="fas fa-map-marker-alt"></i> 前往大名區 (Daimyo)</button>
+                        <button class="action-btn dark" onclick="openTaxi('大名エリア (大名區)', '福岡市中央区大名')"><i class="fas fa-map-pin"></i> 前往大名區 (Daimyo)</button>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -251,7 +252,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-utensils"></i> 晚餐: 一蘭本社</div>
                         <div class="card-desc">一蘭拉麵總本店 (整棟掛燈籠)</div>
-                        <button class="action-btn dark" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')"><i class="fas fa-language"></i> 顯示地址</button>
+                        <button class="action-btn dark" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')"><i class="fas fa-map-marker-alt"></i> 顯示地址</button>
                     </div>
                 </div>
             </div>
@@ -261,9 +262,9 @@
                     <div class="w-main">
                         <div class="weather-left">
                             <div class="weather-icon"><i class="fas fa-sun"></i></div>
-                            <div><div class="weather-temp">15°C / 8°C</div><div class="weather-desc">晴朗舒適</div></div>
+                            <div><div class="weather-temp">15° / 8°</div><div class="weather-desc">晴朗舒適</div></div>
                         </div>
-                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
                     <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>適合走路，建議穿舒適鞋子與薄長袖/針織衫。</span></div>
                 </div>
@@ -274,7 +275,7 @@
                         <div class="card-title"><i class="fas fa-coffee"></i> 早餐: Dacomecca</div>
                         <div class="card-desc">博多超人氣麵包店</div>
                          <button class="action-btn dark" onclick="openTaxi('Dacomecca (ダコメッカ)', '福岡市博多区博多駅前 4-14-1')">
-                            <i class="fas fa-language"></i> 顯示目的地
+                            <i class="fas fa-map-marker-alt"></i> 顯示目的地
                         </button>
                     </div>
                 </div>
@@ -293,7 +294,7 @@
                         <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 牛腸鍋</div>
                         <div class="card-desc"><b>博多牛雜鍋 前田屋 (博多店)</b></div>
                          <button class="action-btn dark" onclick="openTaxi('博多もつ鍋 前田屋 (博多店)', '福岡市博多区博多駅東 2-4-9')">
-                            <i class="fas fa-language"></i> 顯示目的地
+                            <i class="fas fa-map-marker-alt"></i> 顯示目的地
                         </button>
                     </div>
                 </div>
@@ -304,7 +305,7 @@
                         <div class="card-title"><i class="fas fa-store"></i> 博多運河城</div>
                         <div class="card-desc">Canal City Hakata<br>音樂噴泉與逛街 (Uniqlo, Disney, 鋼彈)</div>
                         <button class="action-btn dark" onclick="openTaxi('キャナルシティ博多', '福岡市博多区住吉 1-2')">
-                            <i class="fas fa-map-marker-alt"></i> 去運河城
+                            <i class="fas fa-map-pin"></i> 去運河城
                         </button>
                     </div>
                 </div>
@@ -315,9 +316,9 @@
                     <div class="w-main">
                         <div class="weather-left">
                             <div class="weather-icon"><i class="fas fa-cloud"></i></div>
-                            <div><div class="weather-temp">14°C / 7°C</div><div class="weather-desc">多雲時陰</div></div>
+                            <div><div class="weather-temp">14° / 7°</div><div class="weather-desc">多雲時陰</div></div>
                         </div>
-                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
                     <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>轉陰稍涼，建議攜帶保暖外套或穿發熱衣。</span></div>
                 </div>
@@ -328,7 +329,7 @@
                         <div class="card-title"><i class="fas fa-utensils"></i> 早餐: 一膳めし 青木堂</div>
                         <div class="card-desc">大名區老牌定食屋</div>
                          <button class="action-btn dark" onclick="openTaxi('一膳めし 青木堂', '福岡市中央区大名 1-11-28')">
-                            <i class="fas fa-language"></i> 顯示目的地
+                            <i class="fas fa-map-marker-alt"></i> 顯示目的地
                         </button>
                     </div>
                 </div>
@@ -339,7 +340,7 @@
                         <div class="card-title"><i class="fas fa-shopping-bag"></i> 天神百貨 (上)</div>
                         <div class="card-desc"><b>ONE FUKUOKA Bldg</b><br><b>福岡 PARCO</b><br><b>Full full</b> (明太子法棍)</div>
                          <button class="action-btn dark" onclick="openTaxi('福岡PARCO', '福岡市中央区天神 2-11-1')">
-                            <i class="fas fa-language"></i> 顯示目的地
+                            <i class="fas fa-map-marker-alt"></i> 顯示目的地
                         </button>
                     </div>
                 </div>
@@ -354,7 +355,7 @@
                             <b>B. 一風堂 大名本店:</b> 豚骨拉麵發源地
                         </div>
                          <button class="action-btn dark" onclick="openTaxi('博多 一風堂 大名本店', '福岡市中央区大名 1-13-14')">
-                            <i class="fas fa-language"></i> 去一風堂
+                            <i class="fas fa-map-pin"></i> 去一風堂
                         </button>
                     </div>
                 </div>
@@ -369,7 +370,7 @@
                             <b>BIC CAMERA 天神2館</b>
                         </div>
                         <button class="action-btn dark" onclick="openTaxi('ビックカメラ 天神2号館', '福岡市中央区天神 2-4-5')">
-                            <i class="fas fa-map-marker-alt"></i> 去 BIC CAMERA
+                            <i class="fas fa-map-pin"></i> 去 BIC CAMERA
                         </button>
                     </div>
                 </div>
@@ -388,9 +389,9 @@
                     <div class="w-main">
                         <div class="weather-left">
                             <div class="weather-icon"><i class="fas fa-cloud-sun-rain"></i></div>
-                            <div><div class="weather-temp">13°C / 8°C</div><div class="weather-desc">短暫雨/陰</div></div>
+                            <div><div class="weather-temp">13° / 8°</div><div class="weather-desc">短暫雨/陰</div></div>
                         </div>
-                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
                     <div class="weather-wear"><i class="fas fa-umbrella"></i> <span>降雨機率高，務必攜帶雨具，建議穿防水鞋子。</span></div>
                 </div>
@@ -401,7 +402,7 @@
                         <div class="card-title"><i class="fas fa-taxi"></i> 退房 & 前往機場</div>
                         <div class="card-desc">週三早晨可能塞車，早點出發。</div>
                          <button class="action-btn dark" onclick="openTaxi('福岡空港 国際線ターミナル', 'International Terminal')">
-                            <i class="fas fa-language"></i> 顯示目的地
+                            <i class="fas fa-map-marker-alt"></i> 顯示目的地
                         </button>
                     </div>
                 </div>
@@ -420,7 +421,7 @@
     <div id="view-calculator" class="view-section">
         <div class="calc-container">
             <div class="rate-box">
-                目前匯率: 1 JPY ≈ <span id="rate-display">0.22</span> TWD
+                匯率: 1 JPY ≈ <span id="rate-display">0.22</span> TWD
             </div>
 
             <div class="calc-card">
@@ -429,14 +430,14 @@
                 <div class="calc-section">
                     <div class="calc-input-group">
                         <input type="number" id="inp-jpy-inc" class="calc-input" placeholder="0" inputmode="decimal">
-                        <span class="calc-label">標價 (税込/含稅)</span>
+                        <span class="calc-label">標價 (含稅)</span>
                     </div>
                     <div class="result-row">
-                        <span class="res-label">若免稅 (退稅後):</span>
+                        <span class="res-label">退稅後 (台幣):</span>
                         <span id="res-twd-inc-to-free" class="res-val good">0</span>
                     </div>
                     <div class="result-row">
-                        <span class="res-label">若不免稅 (實付):</span>
+                        <span class="res-label">不免稅 (台幣):</span>
                         <span id="res-twd-inc-to-inc" class="res-val">0</span>
                     </div>
                 </div>
@@ -444,14 +445,14 @@
                 <div class="calc-section">
                     <div class="calc-input-group">
                         <input type="number" id="inp-jpy-exc" class="calc-input" placeholder="0" inputmode="decimal">
-                        <span class="calc-label">標價 (税抜/未稅)</span>
+                        <span class="calc-label">標價 (未稅)</span>
                     </div>
                     <div class="result-row">
-                        <span class="res-label">若免稅 (實付):</span>
+                        <span class="res-label">退稅後 (台幣):</span>
                         <span id="res-twd-exc-to-free" class="res-val good">0</span>
                     </div>
                     <div class="result-row">
-                        <span class="res-label">若不免稅 (加稅後):</span>
+                        <span class="res-label">加稅後 (台幣):</span>
                         <span id="res-twd-exc-to-inc" class="res-val">0</span>
                     </div>
                 </div>
@@ -496,7 +497,7 @@
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙刷 / 牙膏</div></div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙線</div></div>
                 <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">保養品 (乳液/防曬)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">個人備藥</div></div>
             </div>
              <div class="check-category">
                 <div class="category-title">🔌 3C/雜物</div>
@@ -510,7 +511,7 @@
     <div id="view-language" class="view-section">
         <div class="lang-container">
             <div class="lang-category">
-                <div class="lang-category-title"><i class="fas fa-star"></i> 萬用神句</div>
+                <div class="lang-category-title">🌟 萬用神句</div>
                 <div class="lang-card">
                     <div class="lang-text-group"><div class="lang-cn">不好意思 / 請問...</div><div class="lang-jp">すみません</div><div class="lang-roma">Sumima-sen</div></div>
                     <button class="speak-btn" onclick="speakJapanese('すみません')"><i class="fas fa-volume-up"></i></button>
@@ -525,7 +526,7 @@
                 </div>
             </div>
              <div class="lang-category">
-                <div class="lang-category-title"><i class="fas fa-taxi"></i> 計程車</div>
+                <div class="lang-category-title">🚕 計程車</div>
                 <div class="lang-card">
                     <div class="lang-text-group"><div class="lang-cn">請載我到這裡</div><div class="lang-jp">ここまでお願いします</div><div class="lang-roma">Koko made onegai-shimasu</div></div>
                     <button class="speak-btn" onclick="speakJapanese('ここまでお願いします')"><i class="fas fa-volume-up"></i></button>
@@ -540,7 +541,7 @@
                 </div>
             </div>
             <div class="lang-category">
-                <div class="lang-category-title"><i class="fas fa-shopping-bag"></i> 購物與餐廳</div>
+                <div class="lang-category-title">🛍️ 購物與餐廳</div>
                 <div class="lang-card">
                     <div class="lang-text-group"><div class="lang-cn">有推薦的嗎？</div><div class="lang-jp">おすすめはありますか？</div><div class="lang-roma">Osusume wa ari-masuka?</div></div>
                     <button class="speak-btn" onclick="speakJapanese('おすすめはありますか')"><i class="fas fa-volume-up"></i></button>
