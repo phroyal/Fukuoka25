@@ -7,10 +7,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563EB; /* 品牌藍 */
+            --primary: #2563EB;
             --primary-dark: #1D4ED8;
             --accent: #F59E0B;
-            --bg: #F8FAFC; /* 更柔和的背景灰 */
+            --bg: #F8FAFC;
             --card-bg: #FFFFFF;
             --text: #334155;
             --text-light: #94A3B8;
@@ -21,11 +21,11 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            margin: 0; padding: 0; padding-bottom: 100px; /* 增加底部留白 */
+            margin: 0; padding: 0; padding-bottom: 100px;
             -webkit-tap-highlight-color: transparent;
         }
         
-        /* --- Header --- */
+        /* Header */
         header { 
             background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
             color: white; padding: 20px 15px 15px; 
@@ -36,27 +36,16 @@
         .app-title { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
         .trip-info { font-size: 0.85rem; opacity: 0.95; margin-top: 6px; font-weight: 500; }
         
-        /* --- Views & Tabs --- */
+        /* Views & Tabs */
         .view-section { display: none; animation: fadeIn 0.3s ease; }
         .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         
-        .date-tabs { 
-            display: flex; background: white; padding: 12px 10px; 
-            overflow-x: auto; border-bottom: 1px solid #e2e8f0; 
-            scrollbar-width: none; gap: 8px; 
-        }
-        .tab { 
-            flex: 0 0 auto; padding: 10px 18px; border-radius: 25px; 
-            font-size: 0.95rem; color: var(--text-light); background: #f1f5f9; 
-            cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600;
-        }
-        .tab.active { 
-            background: var(--primary); color: white; 
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25); 
-        }
+        .date-tabs { display: flex; background: white; padding: 12px 10px; overflow-x: auto; border-bottom: 1px solid #e2e8f0; scrollbar-width: none; gap: 8px; }
+        .tab { flex: 0 0 auto; padding: 10px 18px; border-radius: 25px; font-size: 0.95rem; color: var(--text-light); background: #f1f5f9; cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; }
+        .tab.active { background: var(--primary); color: white; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25); }
 
-        /* --- Weather --- */
+        /* Weather */
         .daily-weather { color: white; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; display: flex; flex-direction: column; box-shadow: 0 8px 15px rgba(0,0,0, 0.05); }
         .w-main { display: flex; align-items: center; justify-content: space-between; width: 100%; }
         .w-sunny { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); }
@@ -69,7 +58,7 @@
         .weather-link { color: white; text-decoration: none; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.5); padding: 5px 10px; border-radius: 20px; }
         .weather-wear { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9rem; display: flex; align-items: center; gap: 10px; line-height: 1.4; font-weight: 500; }
 
-        /* --- Timeline --- */
+        /* Timeline */
         .timeline-container { padding: 15px; }
         .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
@@ -81,24 +70,25 @@
         .card-desc { font-size: 0.95rem; color: #64748b; line-height: 1.6; }
         
         .opt-group { display: flex; gap: 10px; margin-bottom: 12px; }
-        .opt-tag { background: #EFF6FF; color: var(--primary); padding: 6px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; border: 1px solid #BFDBFE; }
+        .opt-tag { background: #EEF2FF; color: var(--primary); padding: 6px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; border: 1px solid #BFDBFE; }
         
-        /* --- Calculator --- */
+        /* Calculator */
         .calc-container { padding: 20px; }
         .rate-box { background: var(--calc-bg); color: white; padding: 20px; border-radius: 16px; text-align: center; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
         .calc-card { background: white; padding: 25px 20px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 20px; border: 1px solid #f1f5f9; }
         .calc-title { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .calc-input-group { position: relative; margin-bottom: 20px; }
-        .calc-input { width: 100%; padding: 15px; font-size: 1.8rem; border: 2px solid #e2e8f0; border-radius: 12px; box-sizing: border-box; font-weight: 800; color: var(--primary); transition: border 0.2s; }
+        .calc-section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .calc-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .calc-input-group { position: relative; margin-bottom: 15px; }
+        .calc-input { width: 100%; padding: 15px; font-size: 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; box-sizing: border-box; font-weight: 800; color: var(--primary); transition: border 0.2s; }
         .calc-input:focus { outline: none; border-color: var(--primary); }
-        .calc-label { position: absolute; right: 15px; top: 22px; font-weight: bold; color: #94a3b8; }
-        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #e2e8f0; }
-        .result-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .calc-label { position: absolute; right: 15px; top: 18px; font-weight: bold; color: #94a3b8; font-size: 0.9rem; }
+        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .res-label { font-size: 0.95rem; color: #64748b; font-weight: 500; }
-        .res-val { font-size: 1.3rem; font-weight: 800; color: var(--text); }
-        .res-val.good { color: var(--success); }
+        .res-val { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+        .res-val.good { color: var(--success); font-size: 1.3rem; }
 
-        /* --- Language Cards --- */
+        /* Language Cards */
         .lang-container { padding: 20px 15px; }
         .lang-category { margin-bottom: 35px; }
         .lang-category-title { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 6px solid var(--accent); padding-left: 12px; display: flex; align-items: center; gap: 10px;}
@@ -110,12 +100,12 @@
         .speak-btn { background: #F0F9FF; color: var(--primary); border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; margin-left: 15px; transition: transform 0.1s; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1); }
         .speak-btn:active { transform: scale(0.9); background: #e0f2fe; }
 
-        /* --- Components --- */
+        /* Components */
         .action-btn { display: block; width: 100%; padding: 12px; margin-top: 15px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 10px; text-decoration: none; font-weight: 700; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; font-size: 0.95rem; transition: opacity 0.2s; }
         .action-btn.dark { background: #1e293b; color: white; border-color: #1e293b; }
         .action-btn:active { opacity: 0.8; }
         
-        /* --- Checklist --- */
+        /* Checklist */
         .checklist-container { padding: 25px 20px; }
         .progress-container { background: white; padding: 20px; border-radius: 16px; margin-bottom: 25px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
         .progress-bar-bg { width: 100%; height: 12px; background: #f1f5f9; border-radius: 6px; margin-top: 12px; overflow: hidden; }
@@ -130,7 +120,7 @@
         .check-item.checked .check-circle { background: var(--success); border-color: var(--success); color: white; }
         .item-text { font-size: 1rem; font-weight: 500; color: var(--text); }
 
-        /* --- Improved Bottom Nav --- */
+        /* Bottom Nav */
         .bottom-nav { 
             position: fixed; bottom: 0; left: 0; width: 100%; 
             background: #FFFFFF; 
@@ -143,7 +133,7 @@
         .nav-item { 
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             border: none; background: none; cursor: pointer; 
-            color: #94a3b8; /* 質感灰 */
+            color: #94a3b8; 
             transition: all 0.25s; 
             flex: 1; 
             padding: 5px;
@@ -158,10 +148,10 @@
             color: var(--primary); 
         }
         .nav-item.active i {
-            transform: translateY(-3px); /* 選取時微微上浮 */
+            transform: translateY(-3px);
         }
 
-        /* --- Modal --- */
+        /* Modal */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(3px); }
         .modal-content { background: white; padding: 35px 25px; border-radius: 20px; width: 100%; max-width: 400px; text-align: center; position: relative; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
         .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: #cbd5e1; cursor: pointer; }
@@ -420,20 +410,35 @@
 
             <div class="calc-card">
                 <div class="calc-title"><i class="fas fa-yen-sign"></i> 購物換算 (日幣找台幣)</div>
-                <div class="calc-input-group">
-                    <input type="number" id="inp-jpy" class="calc-input" placeholder="0">
-                    <span class="calc-label">JPY (標價)</span>
+                
+                <div class="calc-section">
+                    <div class="calc-input-group">
+                        <input type="number" id="inp-jpy-inc" class="calc-input" placeholder="0">
+                        <span class="calc-label">標價 (税込/含稅)</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="res-label">若免稅 (退稅後):</span>
+                        <span id="res-twd-inc-to-free" class="res-val good">0</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="res-label">若不免稅 (實付):</span>
+                        <span id="res-twd-inc-to-inc" class="res-val">0</span>
+                    </div>
                 </div>
-                <div class="result-row">
-                    <span class="res-label">退稅後台幣 (約):</span>
-                    <span id="res-twd-taxfree" class="res-val good">0</span>
-                </div>
-                <div class="result-row">
-                    <span class="res-label">含稅台幣 (約):</span>
-                    <span id="res-twd-taxinc" class="res-val">0</span>
-                </div>
-                <div style="font-size:0.8rem; color:#666; margin-top:5px;">
-                    * 輸入含稅價格，自動反推退稅後台幣
+
+                <div class="calc-section">
+                    <div class="calc-input-group">
+                        <input type="number" id="inp-jpy-exc" class="calc-input" placeholder="0">
+                        <span class="calc-label">標價 (税抜/未稅)</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="res-label">若免稅 (實付):</span>
+                        <span id="res-twd-exc-to-free" class="res-val good">0</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="res-label">若不免稅 (加稅後):</span>
+                        <span id="res-twd-exc-to-inc" class="res-val">0</span>
+                    </div>
                 </div>
             </div>
 
@@ -460,29 +465,29 @@
             
             <div class="check-category">
                 <div class="category-title">🪪 證件/錢包</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">護照</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">Visit Japan Web QR</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">日幣現金</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">信用卡 (JCB/Visa)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">護照</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">Visit Japan Web QR</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">日幣現金</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">信用卡 (JCB/Visa)</div></div>
             </div>
             <div class="check-category">
                 <div class="category-title">👕 衣物類</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">內衣褲 (4天份)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">外套 (保暖/防風)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">衣服 (外衣/褲子)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">內衣褲 (4天份)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">外套 (保暖/防風)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">衣服 (外衣/褲子)</div></div>
             </div>
             <div class="check-category">
                 <div class="category-title">🧴 個人用品類</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">牙刷 / 牙膏</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">牙線</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">保養品 (乳液/防曬)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙刷 / 牙膏</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙線</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">保養品 (乳液/防曬)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
             </div>
              <div class="check-category">
                 <div class="category-title">🔌 3C/雜物</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">行動電源</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">充電線/轉接頭</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">雨具 (摺疊傘)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">行動電源</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">充電線/轉接頭</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">雨具 (摺疊傘)</div></div>
             </div>
         </div>
     </div>
@@ -592,7 +597,7 @@
         }
         function closeTaxi() { document.getElementById('taxiModal').style.display = 'none'; }
 
-        // Checklist
+        // Checklist Logic
         function toggleCheck(el) {
             el.classList.toggle('checked');
             saveProgress();
@@ -614,7 +619,7 @@
             localStorage.setItem('fukuoka_v3', JSON.stringify(state));
         }
         
-        // Calculator
+        // Calculator Logic (Dual Mode)
         let exchangeRate = 0.22; 
 
         async function fetchRate() {
@@ -624,29 +629,50 @@
                 if (data && data.rates && data.rates.TWD) {
                     exchangeRate = data.rates.TWD;
                     document.getElementById('rate-display').innerText = exchangeRate.toFixed(3);
-                    calculateJPY();
                 }
             } catch (e) { console.log("Using offline rate"); }
         }
 
-        document.getElementById('inp-jpy').addEventListener('input', calculateJPY);
-        document.getElementById('inp-twd').addEventListener('input', calculateTWD);
+        document.getElementById('inp-jpy-inc').addEventListener('input', calcJpyInc);
+        document.getElementById('inp-jpy-exc').addEventListener('input', calcJpyExc);
+        document.getElementById('inp-twd').addEventListener('input', calcTwd);
 
-        function calculateJPY() {
-            const val = parseFloat(document.getElementById('inp-jpy').value);
+        // Mode A: Input Tax Included
+        function calcJpyInc() {
+            const val = parseFloat(document.getElementById('inp-jpy-inc').value);
             if(isNaN(val)) {
-                document.getElementById('res-twd-taxfree').innerText = "0";
-                document.getElementById('res-twd-taxinc').innerText = "0";
+                document.getElementById('res-twd-inc-to-free').innerText = "0";
+                document.getElementById('res-twd-inc-to-inc').innerText = "0";
                 return;
             }
-            const twdTaxInc = Math.round(val * exchangeRate);
-            const twdTaxFree = Math.round((val / 1.1) * exchangeRate);
+            // Logic: Val is Tax Inc.
+            // Tax Free JPY = Val / 1.1
+            const twdInc = Math.round(val * exchangeRate);
+            const twdFree = Math.round((val / 1.1) * exchangeRate);
             
-            document.getElementById('res-twd-taxinc').innerText = twdTaxInc;
-            document.getElementById('res-twd-taxfree').innerText = twdTaxFree;
+            document.getElementById('res-twd-inc-to-inc').innerText = twdInc;
+            document.getElementById('res-twd-inc-to-free').innerText = twdFree;
         }
 
-        function calculateTWD() {
+        // Mode B: Input Tax Free
+        function calcJpyExc() {
+            const val = parseFloat(document.getElementById('inp-jpy-exc').value);
+            if(isNaN(val)) {
+                document.getElementById('res-twd-exc-to-free').innerText = "0";
+                document.getElementById('res-twd-exc-to-inc').innerText = "0";
+                return;
+            }
+            // Logic: Val is Tax Free.
+            // Tax Inc JPY = Val * 1.1
+            const twdFree = Math.round(val * exchangeRate);
+            const twdInc = Math.round((val * 1.1) * exchangeRate);
+            
+            document.getElementById('res-twd-exc-to-free').innerText = twdFree;
+            document.getElementById('res-twd-exc-to-inc').innerText = twdInc;
+        }
+
+        // Mode C: TWD to JPY
+        function calcTwd() {
             const val = parseFloat(document.getElementById('inp-twd').value);
             if(isNaN(val)) {
                 document.getElementById('res-jpy').innerText = "0";
