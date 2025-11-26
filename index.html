@@ -7,123 +7,167 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563EB;
+            --primary: #2563EB; /* 品牌藍 */
+            --primary-dark: #1D4ED8;
             --accent: #F59E0B;
-            --bg: #F3F4F6;
+            --bg: #F8FAFC; /* 更柔和的背景灰 */
             --card-bg: #FFFFFF;
-            --text: #1F2937;
-            --text-light: #6B7280;
+            --text: #334155;
+            --text-light: #94A3B8;
             --success: #10B981;
-            --calc-bg: #1E293B; /* Calculator Dark Mode */
+            --calc-bg: #1E293B;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            margin: 0; padding: 0; padding-bottom: 90px;
+            margin: 0; padding: 0; padding-bottom: 100px; /* 增加底部留白 */
             -webkit-tap-highlight-color: transparent;
         }
-        /* Header */
-        header { background: var(--primary); color: white; padding: 20px 15px 15px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .header-top { display: flex; justify-content: space-between; align-items: center; }
-        .app-title { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
-        .trip-info { font-size: 0.85rem; opacity: 0.9; margin-top: 5px; }
         
-        /* Views & Tabs */
+        /* --- Header --- */
+        header { 
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            color: white; padding: 20px 15px 15px; 
+            position: sticky; top: 0; z-index: 100; 
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); 
+        }
+        .header-top { display: flex; justify-content: space-between; align-items: center; }
+        .app-title { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+        .trip-info { font-size: 0.85rem; opacity: 0.95; margin-top: 6px; font-weight: 500; }
+        
+        /* --- Views & Tabs --- */
         .view-section { display: none; animation: fadeIn 0.3s ease; }
         .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         
-        .date-tabs { display: flex; background: white; padding: 12px 10px; overflow-x: auto; border-bottom: 1px solid #e5e7eb; scrollbar-width: none; gap: 10px; }
-        .tab { flex: 0 0 auto; padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; color: var(--text-light); background: #f3f4f6; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
-        .tab.active { background: var(--primary); color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3); }
+        .date-tabs { 
+            display: flex; background: white; padding: 12px 10px; 
+            overflow-x: auto; border-bottom: 1px solid #e2e8f0; 
+            scrollbar-width: none; gap: 8px; 
+        }
+        .tab { 
+            flex: 0 0 auto; padding: 10px 18px; border-radius: 25px; 
+            font-size: 0.95rem; color: var(--text-light); background: #f1f5f9; 
+            cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600;
+        }
+        .tab.active { 
+            background: var(--primary); color: white; 
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25); 
+        }
 
-        /* Weather Widget */
-        .daily-weather { color: white; border-radius: 12px; padding: 15px 20px; margin-bottom: 15px; display: flex; flex-direction: column; box-shadow: 0 4px 6px rgba(0,0,0, 0.1); }
+        /* --- Weather --- */
+        .daily-weather { color: white; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; display: flex; flex-direction: column; box-shadow: 0 8px 15px rgba(0,0,0, 0.05); }
         .w-main { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-        .w-sunny { background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%); }
+        .w-sunny { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); }
         .w-cloudy { background: linear-gradient(135deg, #94A3B8 0%, #475569 100%); }
         .w-rainy { background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%); }
         .weather-left { display: flex; align-items: center; gap: 15px; }
-        .weather-icon { font-size: 2rem; }
-        .weather-temp { font-size: 1.4rem; font-weight: bold; }
-        .weather-desc { font-size: 0.9rem; opacity: 0.9; }
-        .weather-link { color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 4px 8px; border-radius: 4px; }
-        .weather-wear { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; line-height: 1.4; }
+        .weather-icon { font-size: 2.2rem; }
+        .weather-temp { font-size: 1.6rem; font-weight: 800; }
+        .weather-desc { font-size: 0.95rem; opacity: 0.95; }
+        .weather-link { color: white; text-decoration: none; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.5); padding: 5px 10px; border-radius: 20px; }
+        .weather-wear { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9rem; display: flex; align-items: center; gap: 10px; line-height: 1.4; font-weight: 500; }
 
-        /* Timeline */
+        /* --- Timeline --- */
         .timeline-container { padding: 15px; }
         .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
-        .timeline-item { position: relative; padding-left: 30px; margin-bottom: 25px; border-left: 2px solid #e5e7eb; }
-        .timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px var(--primary); }
-        .time { font-size: 0.85rem; color: var(--text-light); font-weight: 600; margin-bottom: 5px; }
-        .card { background: var(--card-bg); border-radius: 12px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
-        .card-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
+        .timeline-item { position: relative; padding-left: 35px; margin-bottom: 25px; border-left: 2px solid #cbd5e1; }
+        .timeline-dot { position: absolute; left: -6px; top: 0; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--primary); }
+        .time { font-size: 0.9rem; color: var(--text-light); font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .card { background: var(--card-bg); border-radius: 16px; padding: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
+        .card-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; color: var(--text); }
+        .card-desc { font-size: 0.95rem; color: #64748b; line-height: 1.6; }
         
-        /* Option Tags */
-        .opt-group { display: flex; gap: 10px; margin-bottom: 10px; }
-        .opt-tag { background: #EEF2FF; color: #4F46E5; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; border: 1px solid #C7D2FE; }
+        .opt-group { display: flex; gap: 10px; margin-bottom: 12px; }
+        .opt-tag { background: #EFF6FF; color: var(--primary); padding: 6px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; border: 1px solid #BFDBFE; }
         
-        /* Calculator Styles (New) */
+        /* --- Calculator --- */
         .calc-container { padding: 20px; }
-        .rate-box { background: var(--calc-bg); color: white; padding: 15px; border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: bold; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .calc-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .calc-title { font-size: 1.1rem; font-weight: bold; color: var(--text); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
-        .calc-input-group { position: relative; margin-bottom: 15px; }
-        .calc-input { width: 100%; padding: 15px; font-size: 1.5rem; border: 2px solid #E5E7EB; border-radius: 10px; box-sizing: border-box; font-weight: bold; color: var(--primary); }
+        .rate-box { background: var(--calc-bg); color: white; padding: 20px; border-radius: 16px; text-align: center; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .calc-card { background: white; padding: 25px 20px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 20px; border: 1px solid #f1f5f9; }
+        .calc-title { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .calc-input-group { position: relative; margin-bottom: 20px; }
+        .calc-input { width: 100%; padding: 15px; font-size: 1.8rem; border: 2px solid #e2e8f0; border-radius: 12px; box-sizing: border-box; font-weight: 800; color: var(--primary); transition: border 0.2s; }
         .calc-input:focus { outline: none; border-color: var(--primary); }
-        .calc-label { position: absolute; right: 15px; top: 18px; font-weight: bold; color: #9CA3AF; }
-        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #E5E7EB; }
+        .calc-label { position: absolute; right: 15px; top: 22px; font-weight: bold; color: #94a3b8; }
+        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #e2e8f0; }
         .result-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .res-label { font-size: 0.9rem; color: var(--text-light); }
-        .res-val { font-size: 1.2rem; font-weight: bold; color: var(--text); }
-        .res-val.highlight { color: #E11D48; } /* Red for expensive */
-        .res-val.good { color: var(--success); } /* Green for cheap */
+        .res-label { font-size: 0.95rem; color: #64748b; font-weight: 500; }
+        .res-val { font-size: 1.3rem; font-weight: 800; color: var(--text); }
+        .res-val.good { color: var(--success); }
 
-        /* Language Cards */
+        /* --- Language Cards --- */
         .lang-container { padding: 20px 15px; }
-        .lang-category { margin-bottom: 30px; }
-        .lang-category-title { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 5px solid var(--accent); padding-left: 10px; display: flex; align-items: center; gap: 10px;}
-        .lang-card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .lang-category { margin-bottom: 35px; }
+        .lang-category-title { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 6px solid var(--accent); padding-left: 12px; display: flex; align-items: center; gap: 10px;}
+        .lang-card { background: white; border-radius: 16px; padding: 18px; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
         .lang-text-group { flex-grow: 1; }
-        .lang-cn { font-size: 0.95rem; font-weight: bold; color: var(--text); margin-bottom: 4px; }
-        .lang-jp { font-size: 1.2rem; color: var(--primary); font-weight: bold; margin-bottom: 4px; }
-        .lang-roma { font-size: 0.8rem; color: #9CA3AF; font-style: italic; }
-        .speak-btn { background: #EFF6FF; color: var(--primary); border: none; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 15px; transition: background 0.2s; }
-        .speak-btn:active { background: #DBEAFE; transform: scale(0.95); }
+        .lang-cn { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+        .lang-jp { font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 4px; }
+        .lang-roma { font-size: 0.85rem; color: #94a3b8; font-style: italic; font-weight: 500; }
+        .speak-btn { background: #F0F9FF; color: var(--primary); border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; margin-left: 15px; transition: transform 0.1s; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1); }
+        .speak-btn:active { transform: scale(0.9); background: #e0f2fe; }
 
-        /* Helpers */
-        .action-btn { display: block; width: 100%; padding: 10px; margin-top: 10px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; }
-        .action-btn.dark { background: #1F2937; color: white; border-color: #1F2937; }
+        /* --- Components --- */
+        .action-btn { display: block; width: 100%; padding: 12px; margin-top: 15px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 10px; text-decoration: none; font-weight: 700; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; font-size: 0.95rem; transition: opacity 0.2s; }
+        .action-btn.dark { background: #1e293b; color: white; border-color: #1e293b; }
+        .action-btn:active { opacity: 0.8; }
         
-        /* Checklist */
-        .checklist-container { padding: 20px 15px; }
-        .progress-container { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
-        .progress-bar-bg { width: 100%; height: 10px; background: #E5E7EB; border-radius: 5px; margin-top: 10px; overflow: hidden; }
+        /* --- Checklist --- */
+        .checklist-container { padding: 25px 20px; }
+        .progress-container { background: white; padding: 20px; border-radius: 16px; margin-bottom: 25px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
+        .progress-bar-bg { width: 100%; height: 12px; background: #f1f5f9; border-radius: 6px; margin-top: 12px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
-        .check-category { margin-bottom: 25px; }
-        .category-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; border-left: 4px solid var(--accent); padding-left: 10px; }
-        .check-item { background: white; padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; display: flex; align-items: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03); cursor: pointer; }
-        .check-item.checked { background: #ECFDF5; }
-        .check-item.checked .item-text { text-decoration: line-through; color: #9CA3AF; }
-        .check-circle { width: 22px; height: 22px; border: 2px solid #D1D5DB; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; }
+        .check-category { margin-bottom: 30px; }
+        .category-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; border-left: 5px solid var(--accent); padding-left: 12px; }
+        .check-item { background: white; padding: 15px 18px; margin-bottom: 10px; border-radius: 12px; display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); cursor: pointer; border: 1px solid #f1f5f9; transition: background 0.2s; }
+        .check-item:active { background: #f8fafc; }
+        .check-item.checked { background: #F0FDF4; border-color: #bbf7d0; }
+        .check-item.checked .item-text { text-decoration: line-through; color: #94a3b8; }
+        .check-circle { width: 24px; height: 24px; border: 2px solid #cbd5e1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-size: 0.8rem; color: transparent; transition: all 0.2s; flex-shrink: 0; }
         .check-item.checked .check-circle { background: var(--success); border-color: var(--success); color: white; }
+        .item-text { font-size: 1rem; font-weight: 500; color: var(--text); }
 
-        /* Bottom Nav */
-        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #e5e7eb; z-index: 99; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
-        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: var(--text-light); border: none; background: none; cursor: pointer; }
-        .nav-item i { font-size: 1.2rem; margin-bottom: 3px; }
-        .nav-item.active { color: var(--primary); }
+        /* --- Improved Bottom Nav --- */
+        .bottom-nav { 
+            position: fixed; bottom: 0; left: 0; width: 100%; 
+            background: #FFFFFF; 
+            display: flex; justify-content: space-around; align-items: center;
+            padding: 12px 0; 
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.05); 
+            z-index: 99; 
+            padding-bottom: max(15px, env(safe-area-inset-bottom)); 
+        }
+        .nav-item { 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border: none; background: none; cursor: pointer; 
+            color: #94a3b8; /* 質感灰 */
+            transition: all 0.25s; 
+            flex: 1; 
+            padding: 5px;
+        }
+        .nav-item i { 
+            font-size: 1.5rem; margin-bottom: 5px; transition: transform 0.2s;
+        }
+        .nav-item span { 
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+        }
+        .nav-item.active { 
+            color: var(--primary); 
+        }
+        .nav-item.active i {
+            transform: translateY(-3px); /* 選取時微微上浮 */
+        }
 
-        /* Modal */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
-        .modal-content { background: white; padding: 30px 20px; border-radius: 15px; width: 100%; max-width: 400px; text-align: center; position: relative; }
-        .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #999; cursor: pointer; }
-        .jp-address { font-size: 1.3rem; font-weight: bold; margin: 20px 0; line-height: 1.4; color: black; border: 2px solid black; padding: 15px; border-radius: 8px; word-break: keep-all;}
-        .jp-sub { font-size: 0.9rem; color: #666; margin-bottom: 5px; }
-        .jp-title { font-size: 1.5rem; font-weight: 900; color: var(--primary); margin-top: 10px; word-break: keep-all; line-height: 1.3; }
+        /* --- Modal --- */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(3px); }
+        .modal-content { background: white; padding: 35px 25px; border-radius: 20px; width: 100%; max-width: 400px; text-align: center; position: relative; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: #cbd5e1; cursor: pointer; }
+        .jp-address { font-size: 1.4rem; font-weight: 800; margin: 25px 0; line-height: 1.5; color: black; border: 3px solid black; padding: 20px; border-radius: 12px; word-break: keep-all; background: #fff; }
+        .jp-sub { font-size: 1rem; color: #64748b; margin-bottom: 8px; font-weight: 600; }
+        .jp-title { font-size: 1.6rem; font-weight: 900; color: var(--primary); margin-top: 10px; word-break: keep-all; line-height: 1.3; }
     </style>
 </head>
 <body>
@@ -132,7 +176,7 @@
         <div class="header-top">
             <div class="app-title">Fukuoka 2025 🇯🇵</div>
         </div>
-        <div class="trip-info">11/30 - 12/03 | GATE HOTEL FUKUOKA</div>
+        <div class="trip-info">11/30 - 12/03 | GATE HOTEL FUKUOKA by HULIC</div>
     </header>
 
     <div id="view-itinerary" class="view-section active">
@@ -389,7 +433,7 @@
                     <span id="res-twd-taxinc" class="res-val">0</span>
                 </div>
                 <div style="font-size:0.8rem; color:#666; margin-top:5px;">
-                    * 輸入吊牌上的"含稅價格"，自動反推退稅價
+                    * 輸入含稅價格，自動反推退稅後台幣
                 </div>
             </div>
 
@@ -416,29 +460,29 @@
             
             <div class="check-category">
                 <div class="category-title">🪪 證件/錢包</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">護照</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">Visit Japan Web QR</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">日幣現金</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">信用卡 (JCB/Visa)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">護照</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">Visit Japan Web QR</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">日幣現金</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">信用卡 (JCB/Visa)</div></div>
             </div>
             <div class="check-category">
                 <div class="category-title">👕 衣物類</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">內衣褲 (4天份)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">外套 (保暖/防風)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">衣服 (外衣/褲子)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">內衣褲 (4天份)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">外套 (保暖/防風)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">衣服 (外衣/褲子)</div></div>
             </div>
             <div class="check-category">
                 <div class="category-title">🧴 個人用品類</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙刷 / 牙膏</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙線</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">保養品 (乳液/防曬)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">牙刷 / 牙膏</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">牙線</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">保養品 (乳液/防曬)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
             </div>
              <div class="check-category">
                 <div class="category-title">🔌 3C/雜物</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">行動電源</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">充電線/轉接頭</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">雨具 (摺疊傘)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">行動電源</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">充電線/轉接頭</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">雨具 (摺疊傘)</div></div>
             </div>
         </div>
     </div>
@@ -494,16 +538,24 @@
     </div>
 
     <div class="bottom-nav">
-        <button class="nav-item active" onclick="switchView('itinerary')"><span>📅 行程</span></button>
-        <button class="nav-item" onclick="switchView('checklist')"><span>✅ 清單</span></button>
-        <button class="nav-item" onclick="switchView('calculator')"><span>💰 換算</span></button>
-        <button class="nav-item" onclick="switchView('language')"><span>🗣️ 日語</span></button>
+        <button class="nav-item active" onclick="switchView('itinerary')">
+            <i class="fas fa-calendar-alt"></i><span>行程</span>
+        </button>
+        <button class="nav-item" onclick="switchView('checklist')">
+            <i class="fas fa-check-square"></i><span>清單</span>
+        </button>
+        <button class="nav-item" onclick="switchView('calculator')">
+            <i class="fas fa-calculator"></i><span>換算</span>
+        </button>
+        <button class="nav-item" onclick="switchView('language')">
+            <i class="fas fa-language"></i><span>日語</span>
+        </button>
     </div>
 
     <div id="taxiModal" class="modal" onclick="closeTaxi()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-close" onclick="closeTaxi()">×</div>
-            <div class="jp-sub">運転手さん、ここまでお願いします：<br><span style="font-size:0.8rem; color:#999;">(司機先生，請載我到這裡)</span></div>
+            <div class="jp-sub">運転手さん、ここまでお願いします：<br><span style="font-size:0.9rem;">(司機先生，請載我到這裡)</span></div>
             <div id="modal-dest-name" class="jp-title">目的地</div>
             <div id="modal-dest-addr" class="jp-address">地址</div>
             <button class="action-btn" onclick="closeTaxi()" style="margin-top: 20px;">關閉 / Close</button>
@@ -540,7 +592,7 @@
         }
         function closeTaxi() { document.getElementById('taxiModal').style.display = 'none'; }
 
-        // Checklist Logic
+        // Checklist
         function toggleCheck(el) {
             el.classList.toggle('checked');
             saveProgress();
@@ -562,8 +614,8 @@
             localStorage.setItem('fukuoka_v3', JSON.stringify(state));
         }
         
-        // Calculator Logic
-        let exchangeRate = 0.215; // Default Fallback
+        // Calculator
+        let exchangeRate = 0.22; 
 
         async function fetchRate() {
             try {
@@ -572,11 +624,9 @@
                 if (data && data.rates && data.rates.TWD) {
                     exchangeRate = data.rates.TWD;
                     document.getElementById('rate-display').innerText = exchangeRate.toFixed(3);
-                    calculateJPY(); // Recalculate if inputs exist
+                    calculateJPY();
                 }
-            } catch (e) {
-                console.log("Using offline rate");
-            }
+            } catch (e) { console.log("Using offline rate"); }
         }
 
         document.getElementById('inp-jpy').addEventListener('input', calculateJPY);
@@ -589,9 +639,6 @@
                 document.getElementById('res-twd-taxinc').innerText = "0";
                 return;
             }
-            // Logic: Input is Tax Included Price
-            // Tax Included TWD = Val * Rate
-            // Tax Free TWD = (Val / 1.1) * Rate
             const twdTaxInc = Math.round(val * exchangeRate);
             const twdTaxFree = Math.round((val / 1.1) * exchangeRate);
             
@@ -609,7 +656,7 @@
             document.getElementById('res-jpy').innerText = jpyVal;
         }
 
-        // Speech Logic (Female Priority)
+        // Speech
         function speakJapanese(text) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel(); 
@@ -631,7 +678,6 @@
 
         // Init
         window.addEventListener('load', () => {
-            // Load Checklist
             const saved = JSON.parse(localStorage.getItem('fukuoka_v3'));
             if(saved) {
                 const items = document.querySelectorAll('.check-item');
@@ -640,7 +686,6 @@
                 });
                 saveProgress();
             }
-            // Load Voice & Rates
             window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); };
             fetchRate();
         });
