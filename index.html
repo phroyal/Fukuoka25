@@ -39,7 +39,7 @@
 
         /* Timeline */
         .timeline-container { padding: 15px; }
-        .day-schedule { display: none; } /* Hide days by default */
+        .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
         
         .timeline-item { position: relative; padding-left: 30px; margin-bottom: 25px; border-left: 2px solid #e5e7eb; }
@@ -66,8 +66,6 @@
         .action-btn { display: block; width: 100%; padding: 10px; margin-top: 10px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; }
         .action-btn.alert { background: #FEF3C7; color: #D97706; border-color: #FDE68A; }
         .action-btn.dark { background: #1F2937; color: white; border-color: #1F2937; }
-        .tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-        .tag-blue { background: #DBEAFE; color: #1E40AF; }
 
         /* Bottom Nav */
         .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #e5e7eb; z-index: 99; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
@@ -81,6 +79,7 @@
         .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #999; cursor: pointer; }
         .jp-address { font-size: 1.3rem; font-weight: bold; margin: 20px 0; line-height: 1.4; color: black; border: 2px solid black; padding: 15px; border-radius: 8px; word-break: keep-all;}
         .jp-sub { font-size: 0.9rem; color: #666; margin-bottom: 5px; }
+        .jp-title { font-size: 1.5rem; font-weight: 900; color: var(--primary); margin-top: 10px; word-break: keep-all; line-height: 1.3; }
     </style>
 </head>
 <body>
@@ -119,7 +118,7 @@
                     <div class="time">12:15</div>
                     <div class="card">
                         <div class="card-title"><i class="fas fa-taxi"></i> 機場前往飯店</div>
-                        <button class="action-btn dark" onclick="openTaxi('天神 GATE HOTEL', '福岡市中央区天神 2-2-43')">
+                        <button class="action-btn dark" onclick="openTaxi('THE GATE HOTEL 福岡', '福岡市中央区天神 2-2-43')">
                             <i class="fas fa-language"></i> 顯示目的地 (飯店)
                         </button>
                     </div>
@@ -133,218 +132,3 @@
                     </div>
                 </div>
             </div>
-
-            <div id="day-2" class="day-schedule">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">10:00</div>
-                    <div class="card">
-                        <div class="card-title">🚕 飯店出發</div>
-                        <div class="card-desc">前往櫛田神社 (博多總鎮守)</div>
-                         <button class="action-btn dark" onclick="openTaxi('櫛田神社 (Kushida Shrine)', '福岡市博多区上川端町１−４１')">
-                            <i class="fas fa-language"></i> 顯示目的地
-                        </button>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">11:00 - 14:00</div>
-                    <div class="card">
-                        <div class="card-title">🛍️ 博多運河城</div>
-                        <div class="card-desc">Canal City Hakata<br>逛街 & 拉麵競技場午餐</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">14:30 - 17:00</div>
-                    <div class="card">
-                        <div class="card-title">🗼 福岡塔 & 海濱</div>
-                        <div class="card-desc">Momochi Seaside Park<br>散步拍照，看夕陽</div>
-                        <button class="action-btn dark" onclick="openTaxi('福岡タワー (Fukuoka Tower)', '福岡市早良区百道浜2-3-26')">
-                            <i class="fas fa-language"></i> 顯示目的地
-                        </button>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">17:30 - 20:30</div>
-                    <div class="card">
-                        <div class="card-title">🎄 博多車站 & 晚餐</div>
-                        <div class="card-desc">JR HAKATA CITY / 聖誕燈飾<br>晚餐推薦：牛腸鍋 (Motsunabe)</div>
-                         <button class="action-btn dark" onclick="openTaxi('博多駅 (Hakata Station)', '福岡市博多区博多駅中央街1-1')">
-                            <i class="fas fa-language"></i> 顯示目的地
-                        </button>
-                    </div>
-                </div>
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">21:00</div>
-                    <div class="card"><div class="card-desc">🚕 回飯店休息</div></div>
-                </div>
-            </div>
-
-            <div id="day-3" class="day-schedule">
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">10:00</div>
-                    <div class="card">
-                        <div class="card-title">☕ 大濠公園 (Morning)</div>
-                        <div class="card-desc">湖邊散步 & 星巴克概念店</div>
-                         <button class="action-btn dark" onclick="openTaxi('大濠公園 (Ohori Park)', '福岡市中央区大濠公園1-2')">
-                            <i class="fas fa-language"></i> 顯示目的地
-                        </button>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">12:30 - 14:00</div>
-                    <div class="card">
-                        <div class="card-title">🍽️ 午餐: 大名區</div>
-                        <div class="card-desc">推薦：Chikae (稚加榮) 明太子午餐<br>或 Ippudo 本店</div>
-                         <button class="action-btn dark" onclick="openTaxi('稚加栄 (Chikae) 本店', '福岡市中央区大名2-2-17')">
-                            <i class="fas fa-language"></i> 顯示目的地
-                        </button>
-                    </div>
-                </div>
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">14:00 - 18:00</div>
-                    <div class="card">
-                        <div class="card-title">🛍️ 天神百貨巡禮</div>
-                        <div class="card-desc">Parco (動漫/雜貨), Iwataya (精品), Solaria</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">18:30 - 20:30</div>
-                    <div class="card">
-                        <div class="card-title">🥩 晚餐: 日式燒肉</div>
-                        <div class="card-desc">犒賞最後一晚。</div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="day-4" class="day-schedule">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">09:30</div>
-                    <div class="card">
-                        <div class="card-title">🚕 退房 & 前往機場</div>
-                        <div class="card-desc">注意：週三早晨可能塞車，早點出發。</div>
-                         <button class="action-btn dark" onclick="openTaxi('福岡空港 国際線ターミナル', 'International Terminal')">
-                            <i class="fas fa-language"></i> 顯示目的地
-                        </button>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">12:15 - 13:50</div>
-                    <div class="card">
-                        <div class="card-title">✈️ BR105 回程</div>
-                        <div class="card-desc">FUK ✈️ TPE</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div id="view-checklist" class="view-section">
-        <div class="checklist-container">
-            <div class="progress-container">
-                <div style="display:flex; justify-content:space-between;"><span>準備進度</span><span id="progress-text" style="color:var(--success); font-weight:bold;">0%</span></div>
-                <div class="progress-bar-bg"><div id="progress-fill" class="progress-bar-fill"></div></div>
-            </div>
-            <div class="check-category">
-                <div class="category-title">🪪 證件/錢包</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">護照</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">Visit Japan Web QR</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">日幣現金</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">信用卡 (JCB/Visa)</div></div>
-            </div>
-             <div class="check-category">
-                <div class="category-title">🔌 3C/雜物</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">行動電源</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">充電線/轉接頭</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">雨具 (摺疊傘)</div></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bottom-nav">
-        <button class="nav-item active" onclick="switchView('itinerary')"><i class="fas fa-calendar-alt"></i><span>行程</span></button>
-        <button class="nav-item" onclick="switchView('checklist')"><i class="fas fa-check-square"></i><span>清單</span></button>
-        <button class="nav-item" onclick="window.open('https://www.google.com/maps/search/Gate+Hotel+Fukuoka/@33.591026,130.3991276,17z', '_blank')"><i class="fas fa-map-marked-alt"></i><span>地圖</span></button>
-    </div>
-
-    <div id="taxiModal" class="modal" onclick="closeTaxi()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-close" onclick="closeTaxi()">×</div>
-            <div class="jp-sub">司機先生，請載我到這裡：</div>
-            <div id="modal-dest-name" style="font-size:1.2rem; color:var(--primary); margin-top:10px; font-weight:bold;">目的地</div>
-            <div id="modal-dest-addr" class="jp-address">地址</div>
-            <button class="action-btn" onclick="closeTaxi()" style="margin-top: 20px;">關閉 / Close</button>
-        </div>
-    </div>
-
-    <script>
-        // View Switching
-        function switchView(viewId) {
-            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.bottom-nav .nav-item').forEach(el => el.classList.remove('active'));
-            document.getElementById('view-' + viewId).classList.add('active');
-            if(viewId === 'itinerary') document.querySelectorAll('.bottom-nav .nav-item')[0].classList.add('active');
-            if(viewId === 'checklist') document.querySelectorAll('.bottom-nav .nav-item')[1].classList.add('active');
-        }
-
-        // Date Switching
-        function switchDate(dayNum, tabElement) {
-            document.querySelectorAll('.day-schedule').forEach(el => el.classList.remove('active'));
-            document.getElementById('day-' + dayNum).classList.add('active');
-            
-            document.querySelectorAll('.date-tabs .tab').forEach(el => el.classList.remove('active'));
-            tabElement.classList.add('active');
-        }
-
-        // Taxi Modal Logic
-        function openTaxi(name, addr) {
-            document.getElementById('modal-dest-name').innerText = name;
-            document.getElementById('modal-dest-addr').innerText = addr;
-            document.getElementById('taxiModal').style.display = 'flex';
-        }
-        function closeTaxi() { document.getElementById('taxiModal').style.display = 'none'; }
-
-        // Checklist Logic (Simple Storage)
-        function toggleCheck(el) {
-            el.classList.toggle('checked');
-            saveProgress();
-        }
-        function saveProgress() {
-            const items = document.querySelectorAll('.check-item');
-            let checkedCount = 0;
-            let state = [];
-            items.forEach((item, i) => {
-                if(item.classList.contains('checked')) {
-                    checkedCount++;
-                    state[i] = 1;
-                } else {
-                    state[i] = 0;
-                }
-            });
-            document.getElementById('progress-fill').style.width = Math.round((checkedCount/items.length)*100) + '%';
-            document.getElementById('progress-text').innerText = Math.round((checkedCount/items.length)*100) + '%';
-            localStorage.setItem('fukuoka_v3', JSON.stringify(state));
-        }
-        window.addEventListener('load', () => {
-            const saved = JSON.parse(localStorage.getItem('fukuoka_v3'));
-            if(saved) {
-                const items = document.querySelectorAll('.check-item');
-                saved.forEach((val, i) => {
-                    if(val === 1 && items[i]) items[i].classList.add('checked');
-                });
-                saveProgress();
-            }
-        });
-    </script>
-</body>
-</html>
