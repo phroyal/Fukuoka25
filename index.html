@@ -7,21 +7,20 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* --- 色調調整核心 --- */
-            --primary: #365E7D;       /* 莫蘭迪鋼藍：主色調 */
-            --primary-dark: #2A4A62;  /* 深鋼藍：Header 漸層用 */
-            --accent: #D97706;        /* 琥珀金：重點提示 (低飽和) */
-            --bg: #F5F7FA;            /* 冷霧灰：整體背景 */
-            --card-bg: #FFFFFF;       /* 純白：卡片背景 */
-            --text: #2D3748;          /* 深鐵灰：主要文字 (比純黑柔和) */
-            --text-light: #718096;    /* 淺鐵灰：次要文字 */
-            --success: #4CA6A8;       /* 青瓷綠：打勾/完成 */
-            --btn-bg: #EDF2F7;        /* 淡藍灰：按鈕/標籤底色 */
-            --calc-bg: #2D3748;       /* 計算機深色區塊 */
+            /* --- V15.0 清透藍配色 --- */
+            --primary: #3182CE;       /* 清澈藍：清晰但不刺眼 */
+            --primary-dark: #2B6CB0;  /* 深藍：漸層用 */
+            --accent: #D69E2E;        /* 暖金：重點提示 */
+            --bg: #F0F4F8;            /* 極淺灰藍：乾淨背景 */
+            --card-bg: #FFFFFF;       /* 純白卡片 */
+            --text: #2D3748;          /* 深灰黑文字 */
+            --text-light: #718096;    /* 次要文字 */
+            --success: #38A169;       /* 舒適綠 */
+            --calc-bg: #2C5282;       /* 計算機區塊深藍 */
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0; padding: 0; padding-bottom: 80px;
@@ -31,89 +30,88 @@
         
         /* Header */
         header { 
-            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white; padding: 15px 15px 12px;
             position: sticky; top: 0; z-index: 100; 
-            box-shadow: 0 2px 10px rgba(54, 94, 125, 0.25); /* 陰影顏色也配合主色 */
+            box-shadow: 0 2px 10px rgba(49, 130, 206, 0.2); 
         }
         .header-top { display: flex; justify-content: space-between; align-items: center; }
         .app-title { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
-        .trip-info { font-size: 0.8rem; opacity: 0.9; margin-top: 4px; font-weight: 500; }
+        .trip-info { font-size: 0.8rem; opacity: 0.95; margin-top: 4px; font-weight: 500; }
         
-        /* Views */
+        /* Views & Tabs */
         .view-section { display: none; animation: fadeIn 0.2s ease; }
         .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Tabs (Top) */
         .date-tabs { display: flex; background: white; padding: 10px 8px; overflow-x: auto; border-bottom: 1px solid #E2E8F0; scrollbar-width: none; gap: 8px; }
         .tab { 
-            flex: 0 0 auto; padding: 6px 14px; border-radius: 20px; 
-            font-size: 0.9rem; color: var(--text-light); background: var(--bg); 
-            cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; border: 1px solid #E2E8F0;
+            flex: 0 0 auto; padding: 6px 16px; border-radius: 20px; 
+            font-size: 0.9rem; color: var(--text-light); background: #EDF2F7; 
+            cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; 
+            border: 1px solid #E2E8F0;
         }
         .tab.active { 
             background: var(--primary); color: white; border-color: var(--primary); 
-            box-shadow: 0 2px 5px rgba(54, 94, 125, 0.3); 
+            box-shadow: 0 3px 6px rgba(49, 130, 206, 0.25); 
         }
 
-        /* Weather (Low Saturation) */
+        /* Weather (Compact) */
         .daily-weather { 
             color: white; border-radius: 10px; 
-            padding: 10px 15px; margin-bottom: 12px; 
+            padding: 10px 15px; margin-bottom: 15px; 
             display: flex; flex-direction: column; 
-            box-shadow: 0 2px 5px rgba(0,0,0, 0.08); 
+            box-shadow: 0 4px 6px rgba(0,0,0, 0.05); 
         }
         .w-main { display: flex; align-items: center; justify-content: space-between; width: 100%; }
         
-        /* Adjusted Gradients for Low Saturation */
-        .w-sunny { background: linear-gradient(135deg, #6B8EAD 0%, #365E7D 100%); } /* Muted Blue */
-        .w-cloudy { background: linear-gradient(135deg, #A0AEC0 0%, #718096 100%); } /* Cool Gray */
-        .w-rainy { background: linear-gradient(135deg, #5D6D7E 0%, #34495E 100%); } /* Blue Grey */
+        /* Weather Colors (Distinct but Soft) */
+        .w-sunny { background: linear-gradient(135deg, #4299E1 0%, #3182CE 100%); }
+        .w-cloudy { background: linear-gradient(135deg, #A0AEC0 0%, #718096 100%); }
+        .w-rainy { background: linear-gradient(135deg, #5A67D8 0%, #434190 100%); }
         
         .weather-left { display: flex; align-items: center; gap: 10px; }
-        .weather-icon { font-size: 1.5rem; }
-        .weather-temp { font-size: 1.2rem; font-weight: 800; }
-        .weather-desc { font-size: 0.8rem; opacity: 0.95; }
-        .weather-link { color: white; text-decoration: none; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.4); padding: 2px 8px; border-radius: 12px; }
-        .weather-wear { margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; display: flex; align-items: center; gap: 6px; line-height: 1.2; }
+        .weather-icon { font-size: 1.6rem; }
+        .weather-temp { font-size: 1.3rem; font-weight: 800; }
+        .weather-desc { font-size: 0.85rem; opacity: 0.95; }
+        .weather-link { color: white; text-decoration: none; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.5); padding: 2px 10px; border-radius: 15px; }
+        .weather-wear { margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; line-height: 1.3; }
 
         /* Timeline (Compact) */
         .timeline-container { padding: 12px; }
-        .timeline-item { position: relative; padding-left: 28px; margin-bottom: 20px; border-left: 2px solid #CBD5E0; }
-        .timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px var(--primary); }
-        .time { font-size: 0.85rem; color: var(--text-light); font-weight: 700; margin-bottom: 4px; letter-spacing: 0.5px; }
+        .day-schedule { display: none; } /* Ensure hidden by default */
+        .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
+        
+        .timeline-item { position: relative; padding-left: 30px; margin-bottom: 20px; border-left: 2px solid #CBD5E0; }
+        .timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--primary); }
+        .time { font-size: 0.85rem; color: var(--text-light); font-weight: 700; margin-bottom: 4px; }
         
         .card { 
             background: var(--card-bg); border-radius: 10px; 
             padding: 12px 15px; 
-            box-shadow: 0 1px 2px rgba(0,0,0,0.04); border: 1px solid #E2E8F0; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid #E2E8F0; 
         }
         .card-title { font-size: 1rem; font-weight: 800; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; color: var(--text); }
-        .card-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
+        .card-desc { font-size: 0.9rem; color: #4A5568; line-height: 1.5; }
         
         .opt-group { display: flex; gap: 8px; margin-bottom: 8px; }
-        .opt-tag { 
-            background: var(--btn-bg); color: var(--primary); 
-            padding: 4px 8px; border-radius: 6px; 
-            font-size: 0.8rem; font-weight: 700; border: 1px solid #CBD5E0; 
-        }
+        .opt-tag { background: #EBF8FF; color: #2B6CB0; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; border: 1px solid #BEE3F8; }
         
-        /* Action Buttons (Refined) */
+        /* Action Buttons */
         .action-btn { 
             display: block; width: 100%; padding: 8px; margin-top: 10px; 
-            background: var(--btn-bg); color: var(--primary); text-align: center; 
+            background: #EBF8FF; color: #2C5282; text-align: center; 
             border-radius: 8px; text-decoration: none; font-weight: 700; 
-            border: 1px solid #CBD5E0; cursor: pointer; box-sizing: border-box; 
+            border: 1px solid #90CDF4; cursor: pointer; box-sizing: border-box; 
             font-size: 0.85rem; transition: all 0.2s; 
         }
         .action-btn.dark { background: #2D3748; color: white; border-color: #2D3748; }
-        .action-btn:active { opacity: 0.8; transform: scale(0.99); }
+        .action-btn:active { opacity: 0.9; transform: scale(0.98); }
 
-        /* Calculator (Compact) */
+        /* Calculator */
         .calc-container { padding: 15px; }
         .rate-box { 
-            background: var(--calc-bg); color: white; padding: 10px; 
+            background: var(--calc-bg); color: white; padding: 12px; 
             border-radius: 10px; text-align: center; font-size: 1rem; font-weight: 600; 
             margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
         }
@@ -124,25 +122,24 @@
         .calc-input-group { position: relative; margin-bottom: 10px; }
         
         .calc-input { 
-            width: 100%; padding: 8px 10px; font-size: 1.3rem; 
+            width: 100%; padding: 8px 10px; font-size: 1.4rem; 
             border: 1px solid #CBD5E0; border-radius: 8px; 
-            box-sizing: border-box; font-weight: 700; color: var(--primary); background: #FAFAFA;
-            transition: border 0.2s; -moz-appearance: textfield; 
+            box-sizing: border-box; font-weight: 700; color: var(--primary); 
+            transition: border 0.2s; -moz-appearance: textfield; background: #FAFAFA;
         }
-        .calc-input::-webkit-outer-spin-button,
-        .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .calc-input::-webkit-outer-spin-button, .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         .calc-input:focus { outline: none; border-color: var(--primary); border-width: 2px; background: #FFF; }
-        .calc-label { position: absolute; right: 10px; top: 12px; font-weight: 600; color: var(--text-light); font-size: 0.85rem; }
+        .calc-label { position: absolute; right: 10px; top: 12px; font-weight: 600; color: #718096; font-size: 0.85rem; }
         
         .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        .res-label { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
-        .res-val { font-size: 1rem; font-weight: 800; color: var(--text); }
-        .res-val.good { color: var(--success); font-size: 1.1rem; }
+        .res-label { font-size: 0.85rem; color: #718096; font-weight: 500; }
+        .res-val { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+        .res-val.good { color: var(--success); }
 
-        /* Checklists & Lang (Tighter) */
+        /* Checklists & Lang */
         .checklist-container, .lang-container { padding: 15px; }
         .progress-container { background: white; padding: 12px 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; border: 1px solid #E2E8F0; }
-        .progress-bar-bg { width: 100%; height: 8px; background: var(--bg); border-radius: 4px; margin-top: 8px; overflow: hidden; }
+        .progress-bar-bg { width: 100%; height: 8px; background: #EDF2F7; border-radius: 4px; margin-top: 8px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
         .check-category, .lang-category { margin-bottom: 25px; }
         .category-title, .lang-category-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; border-left: 4px solid var(--accent); padding-left: 10px; color: var(--text); }
@@ -151,31 +148,31 @@
             background: white; padding: 10px 12px; 
             margin-bottom: 8px; border-radius: 10px; 
             display: flex; align-items: center; 
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02); cursor: pointer; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03); cursor: pointer; 
             border: 1px solid #E2E8F0; 
         }
         .lang-card { justify-content: space-between; }
         
-        .check-circle { width: 20px; height: 20px; border: 2px solid #CBD5E0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.7rem; color: transparent; flex-shrink: 0; transition: all 0.2s;}
-        .item-text { font-size: 0.95rem; font-weight: 500; text-align: left; flex-grow: 1; color: var(--text); }
+        .check-circle { width: 20px; height: 20px; border: 2px solid #CBD5E0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.7rem; color: transparent; flex-shrink: 0; }
         
-        .check-item.checked { background: #F0FDF4; border-color: #F0FDF4; } /* Very light green bg */
+        /* Fixed Alignment */
+        .item-text { font-size: 0.95rem; font-weight: 500; color: var(--text); text-align: left; flex-grow: 1; }
+        
+        .check-item.checked { background: #F0FFF4; border-color: #C6F6D5; }
         .check-item.checked .check-circle { background: var(--success); border-color: var(--success); color: white; }
-        .check-item.checked .item-text { text-decoration: line-through; color: var(--text-light); opacity: 0.8; }
+        .check-item.checked .item-text { text-decoration: line-through; color: #A0AEC0; }
         
         .lang-cn { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; color: var(--text); }
         .lang-jp { font-size: 1.1rem; color: var(--primary); font-weight: 700; margin-bottom: 2px; }
-        .lang-roma { font-size: 0.75rem; color: var(--text-light); font-style: italic; }
-        .speak-btn { background: var(--btn-bg); color: var(--primary); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
+        .lang-roma { font-size: 0.75rem; color: #718096; font-style: italic; }
+        .speak-btn { background: #EBF8FF; color: var(--primary); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
 
-        /* Bottom Nav (Refined) */
+        /* Bottom Nav */
         .bottom-nav { 
             position: fixed; bottom: 0; left: 0; width: 100%; 
-            background: #FFFFFF; 
-            border-top: 1px solid #E2E8F0;
+            background: #FFFFFF; border-top: 1px solid #E2E8F0;
             display: flex; justify-content: space-around; align-items: center;
-            padding: 8px 0; 
-            z-index: 99; 
+            padding: 8px 0; z-index: 99; 
             padding-bottom: max(10px, env(safe-area-inset-bottom)); 
         }
         .nav-item { 
@@ -188,7 +185,7 @@
         .nav-item span { font-size: 0.7rem; font-weight: 600; } 
         .nav-item.active { 
             color: var(--primary); 
-            background: rgba(54, 94, 125, 0.08); 
+            background: #EBF8FF; 
             border-radius: 12px;
         }
 
@@ -196,8 +193,8 @@
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(2px); }
         .modal-content { background: white; padding: 25px 20px; border-radius: 16px; width: 100%; max-width: 350px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
         .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #CBD5E0; cursor: pointer; }
-        .jp-address { font-size: 1.2rem; font-weight: 800; margin: 20px 0; line-height: 1.4; color: var(--text); border: 2px solid var(--text); padding: 15px; border-radius: 10px; word-break: keep-all; background: #fff; }
-        .jp-sub { font-size: 0.9rem; color: var(--text-light); margin-bottom: 5px; font-weight: 600; }
+        .jp-address { font-size: 1.2rem; font-weight: 800; margin: 20px 0; line-height: 1.4; color: black; border: 2px solid black; padding: 15px; border-radius: 10px; word-break: keep-all; background: #fff; }
+        .jp-sub { font-size: 0.9rem; color: #718096; margin-bottom: 5px; font-weight: 600; }
         .jp-title { font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-top: 5px; word-break: keep-all; line-height: 1.2; }
     </style>
 </head>
@@ -280,9 +277,7 @@
                         <button class="action-btn dark" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')"><i class="fas fa-map-marker-alt"></i> 顯示地址</button>
                     </div>
                 </div>
-            </div>
-
-            <div id="day-2" class="day-schedule">
+            </div> <div id="day-2" class="day-schedule">
                 <div class="daily-weather w-sunny">
                     <div class="w-main">
                         <div class="weather-left">
@@ -334,9 +329,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
-
-            <div id="day-3" class="day-schedule">
+            </div> <div id="day-3" class="day-schedule">
                 <div class="daily-weather w-cloudy">
                     <div class="w-main">
                         <div class="weather-left">
@@ -407,9 +400,7 @@
                         <div class="card-desc">燒肉或居酒屋 (天神周邊)</div>
                     </div>
                 </div>
-            </div>
-
-            <div id="day-4" class="day-schedule">
+            </div> <div id="day-4" class="day-schedule">
                 <div class="daily-weather w-rainy">
                     <div class="w-main">
                         <div class="weather-left">
@@ -439,8 +430,7 @@
                         <div class="card-desc">FUK ✈️ TPE</div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> </div>
     </div>
 
     <div id="view-calculator" class="view-section">
