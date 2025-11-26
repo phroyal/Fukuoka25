@@ -14,6 +14,7 @@
             --text: #1F2937;
             --text-light: #6B7280;
             --success: #10B981;
+            --calc-bg: #1E293B; /* Calculator Dark Mode */
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -22,11 +23,13 @@
             margin: 0; padding: 0; padding-bottom: 90px;
             -webkit-tap-highlight-color: transparent;
         }
+        /* Header */
         header { background: var(--primary); color: white; padding: 20px 15px 15px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .header-top { display: flex; justify-content: space-between; align-items: center; }
         .app-title { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
         .trip-info { font-size: 0.85rem; opacity: 0.9; margin-top: 5px; }
         
+        /* Views & Tabs */
         .view-section { display: none; animation: fadeIn 0.3s ease; }
         .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
@@ -35,7 +38,9 @@
         .tab { flex: 0 0 auto; padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; color: var(--text-light); background: #f3f4f6; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
         .tab.active { background: var(--primary); color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3); }
 
-        .daily-weather { color: white; border-radius: 12px; padding: 15px 20px; margin-bottom: 25px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0, 0.1); }
+        /* Weather Widget */
+        .daily-weather { color: white; border-radius: 12px; padding: 15px 20px; margin-bottom: 15px; display: flex; flex-direction: column; box-shadow: 0 4px 6px rgba(0,0,0, 0.1); }
+        .w-main { display: flex; align-items: center; justify-content: space-between; width: 100%; }
         .w-sunny { background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%); }
         .w-cloudy { background: linear-gradient(135deg, #94A3B8 0%, #475569 100%); }
         .w-rainy { background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%); }
@@ -44,7 +49,9 @@
         .weather-temp { font-size: 1.4rem; font-weight: bold; }
         .weather-desc { font-size: 0.9rem; opacity: 0.9; }
         .weather-link { color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.4); padding: 4px 8px; border-radius: 4px; }
+        .weather-wear { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; line-height: 1.4; }
 
+        /* Timeline */
         .timeline-container { padding: 15px; }
         .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
@@ -55,9 +62,27 @@
         .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
         .card-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
         
+        /* Option Tags */
         .opt-group { display: flex; gap: 10px; margin-bottom: 10px; }
         .opt-tag { background: #EEF2FF; color: #4F46E5; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; border: 1px solid #C7D2FE; }
         
+        /* Calculator Styles (New) */
+        .calc-container { padding: 20px; }
+        .rate-box { background: var(--calc-bg); color: white; padding: 15px; border-radius: 12px; text-align: center; font-size: 1.1rem; font-weight: bold; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .calc-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .calc-title { font-size: 1.1rem; font-weight: bold; color: var(--text); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .calc-input-group { position: relative; margin-bottom: 15px; }
+        .calc-input { width: 100%; padding: 15px; font-size: 1.5rem; border: 2px solid #E5E7EB; border-radius: 10px; box-sizing: border-box; font-weight: bold; color: var(--primary); }
+        .calc-input:focus { outline: none; border-color: var(--primary); }
+        .calc-label { position: absolute; right: 15px; top: 18px; font-weight: bold; color: #9CA3AF; }
+        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #E5E7EB; }
+        .result-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .res-label { font-size: 0.9rem; color: var(--text-light); }
+        .res-val { font-size: 1.2rem; font-weight: bold; color: var(--text); }
+        .res-val.highlight { color: #E11D48; } /* Red for expensive */
+        .res-val.good { color: var(--success); } /* Green for cheap */
+
+        /* Language Cards */
         .lang-container { padding: 20px 15px; }
         .lang-category { margin-bottom: 30px; }
         .lang-category-title { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-left: 5px solid var(--accent); padding-left: 10px; display: flex; align-items: center; gap: 10px;}
@@ -69,9 +94,11 @@
         .speak-btn { background: #EFF6FF; color: var(--primary); border: none; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 15px; transition: background 0.2s; }
         .speak-btn:active { background: #DBEAFE; transform: scale(0.95); }
 
+        /* Helpers */
         .action-btn { display: block; width: 100%; padding: 10px; margin-top: 10px; background: #EFF6FF; color: var(--primary); text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid #BFDBFE; cursor: pointer; box-sizing: border-box; }
         .action-btn.dark { background: #1F2937; color: white; border-color: #1F2937; }
         
+        /* Checklist */
         .checklist-container { padding: 20px 15px; }
         .progress-container { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
         .progress-bar-bg { width: 100%; height: 10px; background: #E5E7EB; border-radius: 5px; margin-top: 10px; overflow: hidden; }
@@ -84,11 +111,13 @@
         .check-circle { width: 22px; height: 22px; border: 2px solid #D1D5DB; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; }
         .check-item.checked .check-circle { background: var(--success); border-color: var(--success); color: white; }
 
+        /* Bottom Nav */
         .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #e5e7eb; z-index: 99; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
         .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: var(--text-light); border: none; background: none; cursor: pointer; }
         .nav-item i { font-size: 1.2rem; margin-bottom: 3px; }
         .nav-item.active { color: var(--primary); }
 
+        /* Modal */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
         .modal-content { background: white; padding: 30px 20px; border-radius: 15px; width: 100%; max-width: 400px; text-align: center; position: relative; }
         .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #999; cursor: pointer; }
@@ -118,11 +147,14 @@
             
             <div id="day-1" class="day-schedule active">
                 <div class="daily-weather w-sunny">
-                    <div class="weather-left">
-                        <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
-                        <div><div class="weather-temp">16°C / 9°C</div><div class="weather-desc">晴時多雲</div></div>
+                    <div class="w-main">
+                        <div class="weather-left">
+                            <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
+                            <div><div class="weather-temp">16°C / 9°C</div><div class="weather-desc">晴時多雲</div></div>
+                        </div>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                     </div>
-                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>早晚溫差大，建議洋蔥式穿搭，帶件防風外套。</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -177,11 +209,14 @@
 
             <div id="day-2" class="day-schedule">
                 <div class="daily-weather w-sunny">
-                    <div class="weather-left">
-                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
-                        <div><div class="weather-temp">15°C / 8°C</div><div class="weather-desc">晴朗舒適</div></div>
+                    <div class="w-main">
+                        <div class="weather-left">
+                            <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                            <div><div class="weather-temp">15°C / 8°C</div><div class="weather-desc">晴朗舒適</div></div>
+                        </div>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                     </div>
-                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>適合走路，建議穿舒適鞋子與薄長袖/針織衫。</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -215,23 +250,12 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="time">15:30 - 17:30</div>
+                    <div class="time">15:30 - 19:00</div>
                     <div class="card">
                         <div class="card-title"><i class="fas fa-store"></i> 博多運河城</div>
-                        <div class="card-desc">Canal City Hakata<br>音樂噴泉與逛街</div>
+                        <div class="card-desc">Canal City Hakata<br>音樂噴泉與逛街 (Uniqlo, Disney, 鋼彈)</div>
                         <button class="action-btn dark" onclick="openTaxi('キャナルシティ博多', '福岡市博多区住吉 1-2')">
                             <i class="fas fa-map-marker-alt"></i> 去運河城
-                        </button>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="time">18:00</div>
-                    <div class="card">
-                        <div class="card-title"><i class="fas fa-camera"></i> 景點: 福岡塔</div>
-                        <div class="card-desc">散步看夕陽/夜景</div>
-                        <button class="action-btn dark" onclick="openTaxi('福岡タワー', '福岡市早良区百道浜 2-3-26')">
-                            <i class="fas fa-language"></i> 顯示福岡塔
                         </button>
                     </div>
                 </div>
@@ -239,13 +263,16 @@
 
             <div id="day-3" class="day-schedule">
                 <div class="daily-weather w-cloudy">
-                    <div class="weather-left">
-                        <div class="weather-icon"><i class="fas fa-cloud"></i></div>
-                        <div><div class="weather-temp">14°C / 7°C</div><div class="weather-desc">多雲時陰</div></div>
+                    <div class="w-main">
+                        <div class="weather-left">
+                            <div class="weather-icon"><i class="fas fa-cloud"></i></div>
+                            <div><div class="weather-temp">14°C / 7°C</div><div class="weather-desc">多雲時陰</div></div>
+                        </div>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                     </div>
-                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>轉陰稍涼，建議攜帶保暖外套或穿發熱衣。</span></div>
                 </div>
-                <div class="timeline-item">
+                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="time">10:00</div>
                     <div class="card">
@@ -271,16 +298,20 @@
                     <div class="timeline-dot"></div>
                     <div class="time">14:00</div>
                     <div class="card">
-                        <div class="card-title"><i class="fas fa-bread-slice"></i> 午餐: Pain Stock</div>
-                        <div class="card-desc"><b>Pain Stock 天神店</b><br>可買回飯店或在附近公園吃。</div>
-                         <button class="action-btn dark" onclick="openTaxi('pain stock (天神店)', '福岡市中央区西中洲 6-17')">
-                            <i class="fas fa-language"></i> 顯示目的地
+                        <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 雙選項</div>
+                        <div class="opt-group"><span class="opt-tag">A. 麵包</span><span class="opt-tag">B. 拉麵</span></div>
+                        <div class="card-desc">
+                            <b>A. Pain Stock 天神店:</b> 麵包名店(可外帶)<br>
+                            <b>B. 一風堂 大名本店:</b> 豚骨拉麵發源地
+                        </div>
+                         <button class="action-btn dark" onclick="openTaxi('博多 一風堂 大名本店', '福岡市中央区大名 1-13-14')">
+                            <i class="fas fa-language"></i> 去一風堂
                         </button>
                     </div>
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="time">15:00 - 18:30</div>
+                    <div class="time">15:30 - 18:30</div>
                     <div class="card">
                         <div class="card-title"><i class="fas fa-shopping-bag"></i> 天神百貨 (下)</div>
                         <div class="card-desc">
@@ -305,11 +336,14 @@
 
             <div id="day-4" class="day-schedule">
                 <div class="daily-weather w-rainy">
-                    <div class="weather-left">
-                        <div class="weather-icon"><i class="fas fa-cloud-sun-rain"></i></div>
-                        <div><div class="weather-temp">13°C / 8°C</div><div class="weather-desc">短暫雨/陰</div></div>
+                    <div class="w-main">
+                        <div class="weather-left">
+                            <div class="weather-icon"><i class="fas fa-cloud-sun-rain"></i></div>
+                            <div><div class="weather-temp">13°C / 8°C</div><div class="weather-desc">短暫雨/陰</div></div>
+                        </div>
+                        <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
                     </div>
-                    <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情 ></a>
+                    <div class="weather-wear"><i class="fas fa-umbrella"></i> <span>降雨機率高，務必攜帶雨具，建議穿防水鞋子。</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -334,6 +368,45 @@
         </div>
     </div>
 
+    <div id="view-calculator" class="view-section">
+        <div class="calc-container">
+            <div class="rate-box">
+                目前匯率: 1 JPY ≈ <span id="rate-display">0.22</span> TWD
+            </div>
+
+            <div class="calc-card">
+                <div class="calc-title"><i class="fas fa-yen-sign"></i> 購物換算 (日幣找台幣)</div>
+                <div class="calc-input-group">
+                    <input type="number" id="inp-jpy" class="calc-input" placeholder="0">
+                    <span class="calc-label">JPY (標價)</span>
+                </div>
+                <div class="result-row">
+                    <span class="res-label">退稅後台幣 (約):</span>
+                    <span id="res-twd-taxfree" class="res-val good">0</span>
+                </div>
+                <div class="result-row">
+                    <span class="res-label">含稅台幣 (約):</span>
+                    <span id="res-twd-taxinc" class="res-val">0</span>
+                </div>
+                <div style="font-size:0.8rem; color:#666; margin-top:5px;">
+                    * 輸入吊牌上的"含稅價格"，自動反推退稅價
+                </div>
+            </div>
+
+            <div class="calc-card">
+                <div class="calc-title"><i class="fas fa-dollar-sign"></i> 預算換算 (台幣找日幣)</div>
+                <div class="calc-input-group">
+                    <input type="number" id="inp-twd" class="calc-input" placeholder="0">
+                    <span class="calc-label">TWD</span>
+                </div>
+                <div class="result-row">
+                    <span class="res-label">約等於日幣:</span>
+                    <span id="res-jpy" class="res-val">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="view-checklist" class="view-section">
         <div class="checklist-container">
             <div class="progress-container">
@@ -343,29 +416,29 @@
             
             <div class="check-category">
                 <div class="category-title">🪪 證件/錢包</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">護照</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">Visit Japan Web QR</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">日幣現金</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">信用卡 (JCB/Visa)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">護照</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">Visit Japan Web QR</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">日幣現金</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">信用卡 (JCB/Visa)</div></div>
             </div>
             <div class="check-category">
                 <div class="category-title">👕 衣物類</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">內衣褲 (4天份)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">外套 (保暖/防風)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">衣服 (外衣/褲子)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">內衣褲 (4天份)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">外套 (保暖/防風)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">衣服 (外衣/褲子)</div></div>
             </div>
             <div class="check-category">
                 <div class="category-title">🧴 個人用品類</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">牙刷 / 牙膏</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">牙線</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">保養品 (乳液/防曬)</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙刷 / 牙膏</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">牙線</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">保養品 (乳液/防曬)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">個人備藥 (感冒/腸胃/止痛)</div></div>
             </div>
              <div class="check-category">
                 <div class="category-title">🔌 3C/雜物</div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">行動電源</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">充電線/轉接頭</div></div>
-                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle"><i class="fas fa-check"></i></div><div class="item-text">雨具 (摺疊傘)</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">行動電源</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">充電線/轉接頭</div></div>
+                <div class="check-item" onclick="toggleCheck(this)"><div class="check-circle">✅</div><div class="item-text">雨具 (摺疊傘)</div></div>
             </div>
         </div>
     </div>
@@ -375,81 +448,45 @@
             <div class="lang-category">
                 <div class="lang-category-title"><i class="fas fa-star"></i> 萬用神句</div>
                 <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">不好意思 / 請問...</div>
-                        <div class="lang-jp">すみません</div>
-                        <div class="lang-roma">Sumima-sen</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">不好意思 / 請問...</div><div class="lang-jp">すみません</div><div class="lang-roma">Sumima-sen</div></div>
                     <button class="speak-btn" onclick="speakJapanese('すみません')"><i class="fas fa-volume-up"></i></button>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">謝謝</div>
-                        <div class="lang-jp">ありがとうございます</div>
-                        <div class="lang-roma">Arigatou gozai-masu</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">謝謝</div><div class="lang-jp">ありがとうございます</div><div class="lang-roma">Arigatou gozai-masu</div></div>
                     <button class="speak-btn" onclick="speakJapanese('ありがとうございます')"><i class="fas fa-volume-up"></i></button>
                 </div>
                  <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">廁所在哪裡？</div>
-                        <div class="lang-jp">トイレはどこですか？</div>
-                        <div class="lang-roma">Toire wa doko desu ka?</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">廁所在哪裡？</div><div class="lang-jp">トイレはどこですか？</div><div class="lang-roma">Toire wa doko desu ka?</div></div>
                     <button class="speak-btn" onclick="speakJapanese('トイレはどこですか？')"><i class="fas fa-volume-up"></i></button>
                 </div>
             </div>
              <div class="lang-category">
                 <div class="lang-category-title"><i class="fas fa-taxi"></i> 計程車</div>
                 <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">請載我到這裡</div>
-                        <div class="lang-jp">ここまでお願いします</div>
-                        <div class="lang-roma">Koko made onegai-shimasu</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">請載我到這裡</div><div class="lang-jp">ここまでお願いします</div><div class="lang-roma">Koko made onegai-shimasu</div></div>
                     <button class="speak-btn" onclick="speakJapanese('ここまでお願いします')"><i class="fas fa-volume-up"></i></button>
                 </div>
                  <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">可以刷卡嗎？</div>
-                        <div class="lang-jp">カードは使えますか？</div>
-                        <div class="lang-roma">Ka-do wa tsukae-masuka?</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">可以刷卡嗎？</div><div class="lang-jp">カードは使えますか？</div><div class="lang-roma">Ka-do wa tsukae-masuka?</div></div>
                     <button class="speak-btn" onclick="speakJapanese('カードは使えますか')"><i class="fas fa-volume-up"></i></button>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">請在這裡停車</div>
-                        <div class="lang-jp">ここで降ろしてください</div>
-                        <div class="lang-roma">Koko de oroshite kudasai</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">請在這裡停車</div><div class="lang-jp">ここで降ろしてください</div><div class="lang-roma">Koko de oroshite kudasai</div></div>
                     <button class="speak-btn" onclick="speakJapanese('ここで降ろしてください')"><i class="fas fa-volume-up"></i></button>
                 </div>
             </div>
             <div class="lang-category">
                 <div class="lang-category-title"><i class="fas fa-shopping-bag"></i> 購物與餐廳</div>
                 <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">有推薦的嗎？</div>
-                        <div class="lang-jp">おすすめはありますか？</div>
-                        <div class="lang-roma">Osusume wa ari-masuka?</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">有推薦的嗎？</div><div class="lang-jp">おすすめはありますか？</div><div class="lang-roma">Osusume wa ari-masuka?</div></div>
                     <button class="speak-btn" onclick="speakJapanese('おすすめはありますか')"><i class="fas fa-volume-up"></i></button>
                 </div>
                  <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">這多少錢？</div>
-                        <div class="lang-jp">これはいくらですか？</div>
-                        <div class="lang-roma">Kore wa ikura desu ka?</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">這多少錢？</div><div class="lang-jp">これはいくらですか？</div><div class="lang-roma">Kore wa ikura desu ka?</div></div>
                     <button class="speak-btn" onclick="speakJapanese('これはいくらですか')"><i class="fas fa-volume-up"></i></button>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-text-group">
-                        <div class="lang-cn">我要結帳</div>
-                        <div class="lang-jp">お会計をお願いします</div>
-                        <div class="lang-roma">Okaikei wo onegai-shimasu</div>
-                    </div>
+                    <div class="lang-text-group"><div class="lang-cn">我要結帳</div><div class="lang-jp">お会計をお願いします</div><div class="lang-roma">Okaikei wo onegai-shimasu</div></div>
                     <button class="speak-btn" onclick="speakJapanese('お会計をお願いします')"><i class="fas fa-volume-up"></i></button>
                 </div>
             </div>
@@ -457,9 +494,10 @@
     </div>
 
     <div class="bottom-nav">
-        <button class="nav-item active" onclick="switchView('itinerary')"><i class="fas fa-calendar-alt"></i><span>行程</span></button>
-        <button class="nav-item" onclick="switchView('checklist')"><i class="fas fa-check-square"></i><span>清單</span></button>
-        <button class="nav-item" onclick="switchView('language')"><i class="fas fa-language"></i><span>日語</span></button>
+        <button class="nav-item active" onclick="switchView('itinerary')"><span>📅 行程</span></button>
+        <button class="nav-item" onclick="switchView('checklist')"><span>✅ 清單</span></button>
+        <button class="nav-item" onclick="switchView('calculator')"><span>💰 換算</span></button>
+        <button class="nav-item" onclick="switchView('language')"><span>🗣️ 日語</span></button>
     </div>
 
     <div id="taxiModal" class="modal" onclick="closeTaxi()">
@@ -479,7 +517,7 @@
             document.querySelectorAll('.bottom-nav .nav-item').forEach(el => el.classList.remove('active'));
             document.getElementById('view-' + viewId).classList.add('active');
             
-            const indexes = {'itinerary':0, 'checklist':1, 'language':2};
+            const indexes = {'itinerary':0, 'checklist':1, 'calculator':2, 'language':3};
             if(indexes[viewId] !== undefined) {
                 document.querySelectorAll('.bottom-nav .nav-item')[indexes[viewId]].classList.add('active');
             }
@@ -523,7 +561,77 @@
             document.getElementById('progress-text').innerText = Math.round((checkedCount/items.length)*100) + '%';
             localStorage.setItem('fukuoka_v3', JSON.stringify(state));
         }
+        
+        // Calculator Logic
+        let exchangeRate = 0.215; // Default Fallback
+
+        async function fetchRate() {
+            try {
+                const response = await fetch('https://api.exchangerate-api.com/v4/latest/JPY');
+                const data = await response.json();
+                if (data && data.rates && data.rates.TWD) {
+                    exchangeRate = data.rates.TWD;
+                    document.getElementById('rate-display').innerText = exchangeRate.toFixed(3);
+                    calculateJPY(); // Recalculate if inputs exist
+                }
+            } catch (e) {
+                console.log("Using offline rate");
+            }
+        }
+
+        document.getElementById('inp-jpy').addEventListener('input', calculateJPY);
+        document.getElementById('inp-twd').addEventListener('input', calculateTWD);
+
+        function calculateJPY() {
+            const val = parseFloat(document.getElementById('inp-jpy').value);
+            if(isNaN(val)) {
+                document.getElementById('res-twd-taxfree').innerText = "0";
+                document.getElementById('res-twd-taxinc').innerText = "0";
+                return;
+            }
+            // Logic: Input is Tax Included Price
+            // Tax Included TWD = Val * Rate
+            // Tax Free TWD = (Val / 1.1) * Rate
+            const twdTaxInc = Math.round(val * exchangeRate);
+            const twdTaxFree = Math.round((val / 1.1) * exchangeRate);
+            
+            document.getElementById('res-twd-taxinc').innerText = twdTaxInc;
+            document.getElementById('res-twd-taxfree').innerText = twdTaxFree;
+        }
+
+        function calculateTWD() {
+            const val = parseFloat(document.getElementById('inp-twd').value);
+            if(isNaN(val)) {
+                document.getElementById('res-jpy').innerText = "0";
+                return;
+            }
+            const jpyVal = Math.round(val / exchangeRate);
+            document.getElementById('res-jpy').innerText = jpyVal;
+        }
+
+        // Speech Logic (Female Priority)
+        function speakJapanese(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9;
+                let voices = window.speechSynthesis.getVoices();
+                let targetVoice = voices.find(v => 
+                    (v.lang === 'ja-JP' || v.lang === 'ja_JP') && 
+                    (v.name.includes('Kyoko') || v.name.includes('O-ren') || v.name.includes('Google') || v.name.includes('Female'))
+                );
+                if (!targetVoice) targetVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja_JP');
+                if (targetVoice) utterance.voice = targetVoice;
+                utterance.lang = 'ja-JP';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("抱歉，您的手機不支援語音功能。");
+            }
+        }
+
+        // Init
         window.addEventListener('load', () => {
+            // Load Checklist
             const saved = JSON.parse(localStorage.getItem('fukuoka_v3'));
             if(saved) {
                 const items = document.querySelectorAll('.check-item');
@@ -532,37 +640,10 @@
                 });
                 saveProgress();
             }
+            // Load Voice & Rates
+            window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); };
+            fetchRate();
         });
-
-        // Enhanced Speech Logic (Prioritize Female Voice)
-        function speakJapanese(text) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel(); // Stop previous
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.rate = 0.9;
-                
-                let voices = window.speechSynthesis.getVoices();
-                
-                // Look for female Japanese voices
-                let targetVoice = voices.find(v => 
-                    (v.lang === 'ja-JP' || v.lang === 'ja_JP') && 
-                    (v.name.includes('Kyoko') || v.name.includes('O-ren') || v.name.includes('Google') || v.name.includes('Female'))
-                );
-
-                if (!targetVoice) {
-                    targetVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja_JP');
-                }
-
-                if (targetVoice) {
-                    utterance.voice = targetVoice;
-                }
-                utterance.lang = 'ja-JP';
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert("抱歉，您的手機不支援語音功能。");
-            }
-        }
-        window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); };
     </script>
 </body>
 </html>
