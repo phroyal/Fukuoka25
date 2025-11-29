@@ -25,6 +25,8 @@
             margin: 0; padding: 0; padding-bottom: 80px;
             -webkit-tap-highlight-color: transparent;
             line-height: 1.5;
+            min-height: 100vh; /* Ensure body has height */
+            overflow-y: scroll; /* Always show scrollbar to prevent layout shift */
         }
         
         /* Header */
@@ -39,7 +41,7 @@
         .trip-info { font-size: 0.8rem; opacity: 0.95; margin-top: 4px; font-weight: 500; }
         
         /* Views & Tabs */
-        .view-section { display: none; animation: fadeIn 0.2s ease; }
+        .view-section { display: none; animation: fadeIn 0.2s ease; min-height: 60vh; }
         .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -250,7 +252,7 @@
                     <div class="time">12:15</div>
                     <div class="card">
                         <div class="card-title"><i class="fas fa-taxi"></i> 抵達/Check-in</div>
-                        <button class="action-btn dark" onclick="openTaxi('THE GATE HOTEL 福岡', '福岡市中央区天神 2-8-49')">
+                        <button type="button" class="action-btn dark" onclick="openTaxi('THE GATE HOTEL 福岡', '福岡市中央区天神 2-8-49')">
                             📍 顯示地址
                         </button>
                     </div>
@@ -282,7 +284,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-utensils"></i> 晚餐: 一蘭本社</div>
                         <div class="card-desc">一蘭拉麵總本店 (整棟掛燈籠)</div>
-                        <button class="action-btn dark" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')">📍 顯示地址</button>
+                        <button type="button" class="action-btn dark" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')">📍 顯示地址</button>
                     </div>
                 </div>
             </div> <div id="day-2" class="day-schedule">
@@ -302,7 +304,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-coffee"></i> 早餐: Dacomecca</div>
                         <div class="card-desc">博多超人氣麵包店</div>
-                         <button class="action-btn dark" onclick="openTaxi('Dacomecca (ダコメッカ)', '福岡市博多区博多駅前 4-14-1')">
+                         <button type="button" class="action-btn dark" onclick="openTaxi('Dacomecca (ダコメッカ)', '福岡市博多区博多駅前 4-14-1')">
                             📍 顯示地址
                         </button>
                     </div>
@@ -321,7 +323,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 牛腸鍋</div>
                         <div class="card-desc"><b>博多牛雜鍋 前田屋 (博多店)</b></div>
-                         <button class="action-btn dark" onclick="openTaxi('博多もつ鍋 前田屋 (博多店)', '福岡市博多区博多駅前 3-26-5')">
+                         <button type="button" class="action-btn dark" onclick="openTaxi('博多もつ鍋 前田屋 (博多店)', '福岡市博多区博多駅前 3-26-5')">
                             📍 顯示地址
                         </button>
                     </div>
@@ -332,7 +334,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-store"></i> 博多運河城</div>
                         <div class="card-desc">Canal City Hakata<br>音樂噴泉與逛街 (Uniqlo, Disney, 鋼彈)</div>
-                        <button class="action-btn dark" onclick="openTaxi('キャナルシティ博多', '福岡市博多区住吉 1-2')">
+                        <button type="button" class="action-btn dark" onclick="openTaxi('キャナルシティ博多', '福岡市博多区住吉 1-2')">
                             📍 顯示地址
                         </button>
                     </div>
@@ -354,7 +356,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-utensils"></i> 早餐: 一膳めし 青木堂</div>
                         <div class="card-desc">大名區老牌定食屋</div>
-                         <button class="action-btn dark" onclick="openTaxi('一膳めし 青木堂', '福岡市中央区大名 1-11-28')">
+                         <button type="button" class="action-btn dark" onclick="openTaxi('一膳めし 青木堂', '福岡市中央区大名 1-11-28')">
                             📍 顯示地址
                         </button>
                     </div>
@@ -389,7 +391,7 @@
                             <b>mont-bell</b> (Vioro)<br>
                             <b>BIC CAMERA 天神2館</b>
                         </div>
-                        <button class="action-btn dark" onclick="openTaxi('ビックカメラ 天神2号館', '福岡市中央区天神 2-4-5')">
+                        <button type="button" class="action-btn dark" onclick="openTaxi('ビックカメラ 天神2号館', '福岡市中央区天神 2-4-5')">
                             📍 顯示地址
                         </button>
                     </div>
@@ -419,7 +421,7 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-taxi"></i> 退房 & 前往機場</div>
                         <div class="card-desc">週三早晨可能塞車，早點出發。</div>
-                         <button class="action-btn dark" onclick="openTaxi('福岡空港 国際線ターミナル', 'International Terminal')">
+                         <button type="button" class="action-btn dark" onclick="openTaxi('福岡空港 国際線ターミナル', 'International Terminal')">
                             📍 顯示地址
                         </button>
                     </div>
@@ -536,21 +538,21 @@
                         <div class="gm-name">やま中 (赤坂店)</div>
                         <div class="gm-desc">福岡本地人超推，味噌口味濃郁，裝潢高級。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('もつ鍋 やま中 赤坂店', '福岡市中央区赤坂 1-9-1')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('もつ鍋 やま中 赤坂店', '福岡市中央区赤坂 1-9-1')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
                     <div class="gm-info">
                         <div class="gm-name">博多もつ鍋 おおやま</div>
                         <div class="gm-desc">博多車站內有分店，味噌口味偏甜重口，交通方便。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('博多もつ鍋 おおやま (KITTE博多店)', '福岡市博多区博多駅中央街 9-1')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('博多もつ鍋 おおやま (KITTE博多店)', '福岡市博多区博多駅中央街 9-1')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
                     <div class="gm-info">
                         <div class="gm-name">元祖もつ鍋 楽天地</div>
                         <div class="gm-desc">韭菜堆得像山一樣高，醬油湯底，老字號大眾口味。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('元祖もつ鍋 楽天地 (天神本店)', '福岡市中央区今泉 1-19-18')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('元祖もつ鍋 楽天地 (天神本店)', '福岡市中央区今泉 1-19-18')">📍 顯示地址</button>
                 </div>
             </div>
 
@@ -562,21 +564,21 @@
                         <div class="gm-name">博多らーめん Shin-Shin</div>
                         <div class="gm-desc">藝人最愛，極細麵配上較不油膩的豚骨湯，天神本店必排。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('博多らーめん Shin-Shin (天神本店)', '福岡市中央区天神 3-2-19')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('博多らーめん Shin-Shin (天神本店)', '福岡市中央区天神 3-2-19')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
                     <div class="gm-info">
                         <div class="gm-name">暖暮 (Danbo)</div>
                         <div class="gm-desc">九州拉麵總選舉冠軍，湯頭濃郁但沒有臭味，可選辣度。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('暖暮 (博多中洲店)', '福岡市博多区中洲 4-7-20')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('暖暮 (博多中洲店)', '福岡市博多区中洲 4-7-20')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
                     <div class="gm-info">
                         <div class="gm-name">一蘭 本社総本店</div>
                         <div class="gm-desc">福岡總本店，整棟掛滿燈籠非常壯觀，位子多。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')">📍 顯示地址</button>
                 </div>
             </div>
 
@@ -588,28 +590,28 @@
                         <div class="gm-name">ひょうたん寿司 (天神)</div>
                         <div class="gm-desc">天神超人氣迴轉/單點壽司，CP值極高，午間套餐划算。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('ひょうたん寿司', '福岡市中央区天神 2-10-20')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('ひょうたん寿司', '福岡市中央区天神 2-10-20')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
                     <div class="gm-info">
                         <div class="gm-name">大地のうどん (博多)</div>
                         <div class="gm-desc">福岡烏龍麵代表，必點「牛蒡天婦羅」，湯頭清澈鮮甜。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('大地のうどん (博多駅ちかてん)', '福岡市博多区博多駅前 2-1-1')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('大地のうどん (博多駅ちかてん)', '福岡市博多区博多駅前 2-1-1')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
                     <div class="gm-info">
                         <div class="gm-name">博多華味鳥 (水炊鍋)</div>
                         <div class="gm-desc">福岡傳統雞肉火鍋，雞湯濃郁充滿膠原蛋白，口感清爽不油。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('博多華味鳥 (天神西通り店)', '福岡市中央区大名 1-12-57')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('博多華味鳥 (天神西通り店)', '福岡市中央区大名 1-12-57')">📍 顯示地址</button>
                 </div>
                  <div class="gourmet-card">
                     <div class="gm-info">
                         <div class="gm-name">博多ごまさば屋</div>
                         <div class="gm-desc">「胡麻鯖魚」是福岡名物，生魚片拌胡麻醬，健康清爽。</div>
                     </div>
-                    <button class="gm-btn" onclick="openTaxi('博多ごまさば屋', '福岡市中央区舞鶴 1-2-11')">📍 顯示地址</button>
+                    <button type="button" class="gm-btn" onclick="openTaxi('博多ごまさば屋', '福岡市中央区舞鶴 1-2-11')">📍 顯示地址</button>
                 </div>
             </div>
 
@@ -671,19 +673,19 @@
     </div>
 
     <div class="bottom-nav">
-        <button class="nav-item active" onclick="switchView('itinerary')">
+        <button type="button" class="nav-item active" onclick="switchView('itinerary')">
             <i class="fas fa-calendar-alt"></i><span>行程</span>
         </button>
-        <button class="nav-item" onclick="switchView('checklist')">
+        <button type="button" class="nav-item" onclick="switchView('checklist')">
             <i class="fas fa-check-square"></i><span>清單</span>
         </button>
-        <button class="nav-item" onclick="switchView('calculator')">
+        <button type="button" class="nav-item" onclick="switchView('calculator')">
             <i class="fas fa-calculator"></i><span>換算</span>
         </button>
-        <button class="nav-item" onclick="switchView('gourmet')">
+        <button type="button" class="nav-item" onclick="switchView('gourmet')">
             <i class="fas fa-utensils"></i><span>美食</span>
         </button>
-        <button class="nav-item" onclick="switchView('language')">
+        <button type="button" class="nav-item" onclick="switchView('language')">
             <i class="fas fa-language"></i><span>日語</span>
         </button>
     </div>
@@ -694,7 +696,7 @@
             <div class="jp-sub">運転手さん、ここまでお願いします：<br><span style="font-size:0.9rem;">(司機先生，請載我到這裡)</span></div>
             <div id="modal-dest-name" class="jp-title">目的地</div>
             <div id="modal-dest-addr" class="jp-address">地址</div>
-            <button class="action-btn" onclick="closeTaxi()" style="margin-top: 20px;">關閉 / Close</button>
+            <button type="button" class="action-btn" onclick="closeTaxi()" style="margin-top: 20px;">關閉 / Close</button>
         </div>
     </div>
 
