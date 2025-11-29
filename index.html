@@ -55,11 +55,10 @@
             box-shadow: 0 3px 6px rgba(49, 130, 206, 0.25); 
         }
 
-        /* Weather (Ultra Compact Fixed) */
+        /* Weather (Compact) */
         .daily-weather { 
             color: white; border-radius: 10px; 
-            padding: 8px 12px; /* Reduced Padding */
-            margin-bottom: 12px; 
+            padding: 8px 12px; margin-bottom: 12px; 
             display: flex; flex-direction: column; 
             box-shadow: 0 3px 5px rgba(0,0,0, 0.05); 
         }
@@ -70,16 +69,11 @@
         .w-rainy { background: linear-gradient(135deg, #5A67D8 0%, #434190 100%); }
         
         .weather-left { display: flex; align-items: center; gap: 8px; }
-        .weather-icon { font-size: 1.4rem; } /* Smaller Icon */
-        .weather-temp { font-size: 1.2rem; font-weight: 800; line-height: 1; } /* Smaller Temp */
+        .weather-icon { font-size: 1.4rem; }
+        .weather-temp { font-size: 1.2rem; font-weight: 800; line-height: 1; }
         .weather-desc { font-size: 0.8rem; opacity: 0.95; }
         .weather-link { color: white; text-decoration: none; font-size: 0.7rem; border: 1px solid rgba(255,255,255,0.5); padding: 1px 8px; border-radius: 12px; }
-        .weather-wear { 
-            margin-top: 5px; padding-top: 5px; /* Tighter Spacing */
-            border-top: 1px solid rgba(255,255,255,0.2); 
-            font-size: 0.75rem; /* Smaller Text */
-            display: flex; align-items: center; gap: 6px; line-height: 1.2; 
-        }
+        .weather-wear { margin-top: 5px; padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.75rem; display: flex; align-items: center; gap: 6px; line-height: 1.2; }
 
         /* Timeline (Compact) */
         .timeline-container { padding: 12px; }
@@ -268,7 +262,6 @@
                         <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 天神/大名</div>
                         <div class="opt-group"><span class="opt-tag">選項 A</span><span class="opt-tag">選項 B</span></div>
                         <div class="card-desc"><b>A. 拉麵海鳴:</b> 魚介豚骨湯頭<br><b>B. dacō:</b> 精緻麵包咖啡</div>
-                        <button class="action-btn dark" onclick="openTaxi('大名エリア (大名區)', '福岡市中央区大名')">📍 顯示地址</button>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -372,9 +365,6 @@
                     <div class="card">
                         <div class="card-title"><i class="fas fa-shopping-bag"></i> 天神百貨 (上)</div>
                         <div class="card-desc"><b>ONE FUKUOKA Bldg</b><br><b>福岡 PARCO</b><br><b>Full full</b> (明太子法棍)</div>
-                         <button class="action-btn dark" onclick="openTaxi('福岡PARCO', '福岡市中央区天神 2-11-1')">
-                            📍 顯示地址
-                        </button>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -387,9 +377,6 @@
                             <b>A. Pain Stock 天神店:</b> 麵包名店(可外帶)<br>
                             <b>B. 一風堂 大名本店:</b> 豚骨拉麵發源地
                         </div>
-                         <button class="action-btn dark" onclick="openTaxi('博多 一風堂 大名本店', '福岡市中央区大名 1-13-14')">
-                            📍 顯示地址
-                        </button>
                     </div>
                 </div>
                  <div class="timeline-item">
