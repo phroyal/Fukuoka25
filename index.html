@@ -7,16 +7,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* --- V15.0 清透藍配色 --- */
-            --primary: #3182CE;       /* 清澈藍：清晰但不刺眼 */
-            --primary-dark: #2B6CB0;  /* 深藍：漸層用 */
-            --accent: #D69E2E;        /* 暖金：重點提示 */
-            --bg: #F0F4F8;            /* 極淺灰藍：乾淨背景 */
-            --card-bg: #FFFFFF;       /* 純白卡片 */
-            --text: #2D3748;          /* 深灰黑文字 */
-            --text-light: #718096;    /* 次要文字 */
-            --success: #38A169;       /* 舒適綠 */
-            --calc-bg: #2C5282;       /* 計算機區塊深藍 */
+            --primary: #3182CE;
+            --primary-dark: #2B6CB0;
+            --accent: #D69E2E;
+            --bg: #F0F4F8;
+            --card-bg: #FFFFFF;
+            --text: #2D3748;
+            --text-light: #718096;
+            --success: #38A169;
+            --calc-bg: #2C5282;
         }
         
         body {
@@ -65,7 +64,6 @@
         }
         .w-main { display: flex; align-items: center; justify-content: space-between; width: 100%; }
         
-        /* Weather Colors (Distinct but Soft) */
         .w-sunny { background: linear-gradient(135deg, #4299E1 0%, #3182CE 100%); }
         .w-cloudy { background: linear-gradient(135deg, #A0AEC0 0%, #718096 100%); }
         .w-rainy { background: linear-gradient(135deg, #5A67D8 0%, #434190 100%); }
@@ -79,7 +77,7 @@
 
         /* Timeline (Compact) */
         .timeline-container { padding: 12px; }
-        .day-schedule { display: none; } /* Ensure hidden by default */
+        .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
         
         .timeline-item { position: relative; padding-left: 30px; margin-bottom: 20px; border-left: 2px solid #CBD5E0; }
@@ -136,26 +134,26 @@
         .res-val { font-size: 1.1rem; font-weight: 800; color: var(--text); }
         .res-val.good { color: var(--success); }
 
-        /* Checklists & Lang */
-        .checklist-container, .lang-container { padding: 15px; }
+        /* Checklists & Lang & Gourmet */
+        .checklist-container, .lang-container, .gourmet-container { padding: 15px; }
         .progress-container { background: white; padding: 12px 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; border: 1px solid #E2E8F0; }
         .progress-bar-bg { width: 100%; height: 8px; background: #EDF2F7; border-radius: 4px; margin-top: 8px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
-        .check-category, .lang-category { margin-bottom: 25px; }
+        
+        .check-category, .lang-category, .gourmet-category { margin-bottom: 25px; }
         .category-title, .lang-category-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; border-left: 4px solid var(--accent); padding-left: 10px; color: var(--text); }
         
-        .check-item, .lang-card { 
+        .check-item, .lang-card, .gourmet-card { 
             background: white; padding: 10px 12px; 
             margin-bottom: 8px; border-radius: 10px; 
             display: flex; align-items: center; 
             box-shadow: 0 1px 2px rgba(0,0,0,0.03); cursor: pointer; 
             border: 1px solid #E2E8F0; 
         }
-        .lang-card { justify-content: space-between; }
+        .lang-card, .gourmet-card { justify-content: space-between; align-items: flex-start; }
+        .gourmet-card { display: block; } /* Block layout for gourmet */
         
         .check-circle { width: 20px; height: 20px; border: 2px solid #CBD5E0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.7rem; color: transparent; flex-shrink: 0; }
-        
-        /* Fixed Alignment */
         .item-text { font-size: 0.95rem; font-weight: 500; color: var(--text); text-align: left; flex-grow: 1; }
         
         .check-item.checked { background: #F0FFF4; border-color: #C6F6D5; }
@@ -166,6 +164,11 @@
         .lang-jp { font-size: 1.1rem; color: var(--primary); font-weight: 700; margin-bottom: 2px; }
         .lang-roma { font-size: 0.75rem; color: #718096; font-style: italic; }
         .speak-btn { background: #EBF8FF; color: var(--primary); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
+
+        /* Gourmet Card Specifics */
+        .gm-name { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; display: flex; justify-content: space-between;}
+        .gm-desc { font-size: 0.85rem; color: #4A5568; line-height: 1.4; margin-bottom: 8px; }
+        .gm-btn { display: inline-block; padding: 6px 12px; background: #2D3748; color: white; font-size: 0.75rem; border-radius: 15px; text-decoration: none; font-weight: 600; }
 
         /* Bottom Nav */
         .bottom-nav { 
@@ -178,15 +181,15 @@
         .nav-item { 
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             border: none; background: none; cursor: pointer; 
-            color: #A0AEC0; flex: 1; padding: 4px;
+            color: #A0AEC0; flex: 1; padding: 2px; /* reduced padding */
             transition: all 0.2s;
         }
-        .nav-item i { font-size: 1.3rem; margin-bottom: 3px; } 
-        .nav-item span { font-size: 0.7rem; font-weight: 600; } 
+        .nav-item i { font-size: 1.2rem; margin-bottom: 2px; } 
+        .nav-item span { font-size: 0.65rem; font-weight: 600; } 
         .nav-item.active { 
             color: var(--primary); 
-            background: #EBF8FF; 
-            border-radius: 12px;
+            background: rgba(49, 130, 206, 0.08); 
+            border-radius: 8px;
         }
 
         /* Modal */
@@ -222,11 +225,11 @@
                     <div class="w-main">
                         <div class="weather-left">
                             <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
-                            <div><div class="weather-temp">16° / 9°</div><div class="weather-desc">晴時多雲</div></div>
+                            <div><div class="weather-temp">14° / 7°</div><div class="weather-desc">晴時多雲</div></div>
                         </div>
                         <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
-                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>早晚溫差大，建議洋蔥式穿搭，帶件防風外套。</span></div>
+                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>天氣舒適，建議薄長袖搭配防風外套。</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -278,15 +281,15 @@
                     </div>
                 </div>
             </div> <div id="day-2" class="day-schedule">
-                <div class="daily-weather w-sunny">
+                <div class="daily-weather w-rainy">
                     <div class="w-main">
                         <div class="weather-left">
-                            <div class="weather-icon"><i class="fas fa-sun"></i></div>
-                            <div><div class="weather-temp">15° / 8°</div><div class="weather-desc">晴朗舒適</div></div>
+                            <div class="weather-icon"><i class="fas fa-cloud-showers-heavy"></i></div>
+                            <div><div class="weather-temp">13° / 8°</div><div class="weather-desc">陰有雨</div></div>
                         </div>
                         <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
-                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>適合走路，建議穿舒適鞋子與薄長袖/針織衫。</span></div>
+                    <div class="weather-wear"><i class="fas fa-umbrella"></i> <span>降雨機率高，務必攜帶雨具，建議穿防水鞋。</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -330,15 +333,15 @@
                     </div>
                 </div>
             </div> <div id="day-3" class="day-schedule">
-                <div class="daily-weather w-cloudy">
+                <div class="daily-weather w-sunny">
                     <div class="w-main">
                         <div class="weather-left">
-                            <div class="weather-icon"><i class="fas fa-cloud"></i></div>
-                            <div><div class="weather-temp">14° / 7°</div><div class="weather-desc">多雲時陰</div></div>
+                            <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                            <div><div class="weather-temp">11° / 5°</div><div class="weather-desc">晴朗偏冷</div></div>
                         </div>
                         <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
-                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>轉陰稍涼，建議攜帶保暖外套或穿發熱衣。</span></div>
+                    <div class="weather-wear"><i class="fas fa-temperature-low"></i> <span>早晚溫差大，建議穿發熱衣或帶圍巾保暖。</span></div>
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -401,15 +404,15 @@
                     </div>
                 </div>
             </div> <div id="day-4" class="day-schedule">
-                <div class="daily-weather w-rainy">
+                <div class="daily-weather w-sunny">
                     <div class="w-main">
                         <div class="weather-left">
-                            <div class="weather-icon"><i class="fas fa-cloud-sun-rain"></i></div>
-                            <div><div class="weather-temp">13° / 8°</div><div class="weather-desc">短暫雨/陰</div></div>
+                            <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                            <div><div class="weather-temp">12° / 6°</div><div class="weather-desc">晴朗</div></div>
                         </div>
                         <a href="https://tenki.jp/forecast/9/43/8210/40133/" target="_blank" class="weather-link">詳情</a>
                     </div>
-                    <div class="weather-wear"><i class="fas fa-umbrella"></i> <span>降雨機率高，務必攜帶雨具，建議穿防水鞋子。</span></div>
+                    <div class="weather-wear"><i class="fas fa-tshirt"></i> <span>早晨較冷，建議洋蔥式穿搭以便室內脫下。</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -436,7 +439,7 @@
     <div id="view-calculator" class="view-section">
         <div class="calc-container">
             <div class="rate-box">
-                匯率: 1 JPY ≈ <span id="rate-display">0.22</span> TWD
+                匯率: 1 JPY ≈ <span id="rate-display">0.215</span> TWD
             </div>
 
             <div class="calc-card">
@@ -523,6 +526,72 @@
         </div>
     </div>
 
+    <div id="view-gourmet" class="view-section">
+        <div class="gourmet-container">
+            
+            <div class="gourmet-category">
+                <div class="lang-category-title"><i class="fas fa-utensils"></i> 牛腸鍋 (Motsunabe)</div>
+                
+                <div class="gourmet-card">
+                    <div class="gm-name">やま中 (赤坂店)</div>
+                    <div class="gm-desc">福岡本地人超推，味噌口味濃郁，裝潢高級。</div>
+                    <button class="gm-btn" onclick="openTaxi('もつ鍋 やま中 赤坂店', '福岡市中央区赤坂 1-9-1')">📍 顯示地址</button>
+                </div>
+                <div class="gourmet-card">
+                    <div class="gm-name">博多もつ鍋 おおやま</div>
+                    <div class="gm-desc">博多車站內有分店，味噌口味偏甜重口，交通方便。</div>
+                    <button class="gm-btn" onclick="openTaxi('博多もつ鍋 おおやま (KITTE博多店)', '福岡市博多区博多駅中央街 9-1')">📍 顯示地址</button>
+                </div>
+                <div class="gourmet-card">
+                    <div class="gm-name">元祖もつ鍋 楽天地</div>
+                    <div class="gm-desc">韭菜堆得像山一樣高，醬油湯底，老字號大眾口味。</div>
+                    <button class="gm-btn" onclick="openTaxi('元祖もつ鍋 楽天地 (天神本店)', '福岡市中央区今泉 1-19-18')">📍 顯示地址</button>
+                </div>
+            </div>
+
+            <div class="gourmet-category">
+                <div class="lang-category-title"><i class="fas fa-bowl-food"></i> 拉麵 (Ramen)</div>
+                
+                <div class="gourmet-card">
+                    <div class="gm-name">博多らーめん Shin-Shin</div>
+                    <div class="gm-desc">藝人最愛，極細麵配上較不油膩的豚骨湯，天神本店必排。</div>
+                    <button class="gm-btn" onclick="openTaxi('博多らーめん Shin-Shin (天神本店)', '福岡市中央区天神 3-2-19')">📍 顯示地址</button>
+                </div>
+                <div class="gourmet-card">
+                    <div class="gm-name">博多一双 (Hakata Issou)</div>
+                    <div class="gm-desc">號稱「豚骨卡布奇諾」，湯頭濃郁充滿泡泡，重口味首選。</div>
+                    <button class="gm-btn" onclick="openTaxi('博多一双 (博多駅東本店)', '福岡市博多区博多駅東 3-1-6')">📍 顯示地址</button>
+                </div>
+                <div class="gourmet-card">
+                    <div class="gm-name">元祖長浜屋</div>
+                    <div class="gm-desc">長濱拉麵發源地，只賣一種拉麵，便宜快速，在地早餐首選。</div>
+                    <button class="gm-btn" onclick="openTaxi('元祖長浜屋', '福岡市中央区長浜 2-5-25')">📍 顯示地址</button>
+                </div>
+            </div>
+
+            <div class="gourmet-category">
+                <div class="lang-category-title"><i class="fas fa-fish"></i> 特色美食</div>
+                
+                <div class="gourmet-card">
+                    <div class="gm-name">元祖博多めんたい重</div>
+                    <div class="gm-desc">整條明太子蓋飯，價格稍高但非常豪華，適合拍照打卡。</div>
+                    <button class="gm-btn" onclick="openTaxi('元祖博多めんたい重', '福岡市中央区西中洲 6-15')">📍 顯示地址</button>
+                </div>
+                <div class="gourmet-card">
+                    <div class="gm-name">博多ごまさば屋</div>
+                    <div class="gm-desc">「胡麻鯖魚」是福岡必吃生魚片料理，這間定食CP值超高。</div>
+                    <button class="gm-btn" onclick="openTaxi('博多ごまさば屋', '福岡市中央区舞鶴 1-8-26')">📍 顯示地址</button>
+                </div>
+                <div class="gourmet-card">
+                    <div class="gm-name">かわ屋 (Kaway)</div>
+                    <div class="gm-desc">博多特色「雞皮串」，要烤好幾次，口感酥脆不油膩。</div>
+                    <button class="gm-btn" onclick="openTaxi('かわ屋 (警固店)', '福岡市中央区警固 2-16-10')">📍 顯示地址</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div id="view-language" class="view-section">
         <div class="lang-container">
             <div class="lang-category">
@@ -587,6 +656,9 @@
         <button class="nav-item" onclick="switchView('calculator')">
             <i class="fas fa-calculator"></i><span>換算</span>
         </button>
+        <button class="nav-item" onclick="switchView('gourmet')">
+            <i class="fas fa-utensils"></i><span>美食</span>
+        </button>
         <button class="nav-item" onclick="switchView('language')">
             <i class="fas fa-language"></i><span>日語</span>
         </button>
@@ -609,7 +681,7 @@
             document.querySelectorAll('.bottom-nav .nav-item').forEach(el => el.classList.remove('active'));
             document.getElementById('view-' + viewId).classList.add('active');
             
-            const indexes = {'itinerary':0, 'checklist':1, 'calculator':2, 'language':3};
+            const indexes = {'itinerary':0, 'checklist':1, 'calculator':2, 'gourmet':3, 'language':4};
             if(indexes[viewId] !== undefined) {
                 document.querySelectorAll('.bottom-nav .nav-item')[indexes[viewId]].classList.add('active');
             }
@@ -655,7 +727,7 @@
         }
         
         // Calculator Logic
-        let exchangeRate = 0.22; 
+        let exchangeRate = 0.215; // Updated Default
 
         async function fetchRate() {
             try {
