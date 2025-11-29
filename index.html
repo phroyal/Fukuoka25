@@ -25,8 +25,8 @@
             margin: 0; padding: 0; padding-bottom: 80px;
             -webkit-tap-highlight-color: transparent;
             line-height: 1.5;
-            min-height: 100vh; /* Ensure body has height */
-            overflow-y: scroll; /* Always show scrollbar to prevent layout shift */
+            min-height: 100vh;
+            overflow-y: scroll;
         }
         
         /* Header */
@@ -57,7 +57,7 @@
             box-shadow: 0 3px 6px rgba(49, 130, 206, 0.25); 
         }
 
-        /* Weather (Compact) */
+        /* Weather */
         .daily-weather { 
             color: white; border-radius: 10px; 
             padding: 8px 12px; margin-bottom: 12px; 
@@ -65,11 +65,9 @@
             box-shadow: 0 3px 5px rgba(0,0,0, 0.05); 
         }
         .w-main { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-        
         .w-sunny { background: linear-gradient(135deg, #4299E1 0%, #3182CE 100%); }
         .w-cloudy { background: linear-gradient(135deg, #A0AEC0 0%, #718096 100%); }
         .w-rainy { background: linear-gradient(135deg, #5A67D8 0%, #434190 100%); }
-        
         .weather-left { display: flex; align-items: center; gap: 8px; }
         .weather-icon { font-size: 1.4rem; }
         .weather-temp { font-size: 1.2rem; font-weight: 800; line-height: 1; }
@@ -77,134 +75,91 @@
         .weather-link { color: white; text-decoration: none; font-size: 0.7rem; border: 1px solid rgba(255,255,255,0.5); padding: 1px 8px; border-radius: 12px; }
         .weather-wear { margin-top: 5px; padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.75rem; display: flex; align-items: center; gap: 6px; line-height: 1.2; }
 
-        /* Timeline (Compact) */
+        /* Timeline */
         .timeline-container { padding: 12px; }
         .day-schedule { display: none; }
         .day-schedule.active { display: block; animation: fadeIn 0.3s ease; }
-        
         .timeline-item { position: relative; padding-left: 30px; margin-bottom: 20px; border-left: 2px solid #CBD5E0; }
         .timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--primary); }
         .time { font-size: 0.85rem; color: var(--text-light); font-weight: 700; margin-bottom: 4px; }
-        
-        .card { 
-            background: var(--card-bg); border-radius: 10px; 
-            padding: 12px 15px; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid #E2E8F0; 
-        }
+        .card { background: var(--card-bg); border-radius: 10px; padding: 12px 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid #E2E8F0; }
         .card-title { font-size: 1rem; font-weight: 800; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; color: var(--text); }
         .card-desc { font-size: 0.9rem; color: #4A5568; line-height: 1.5; }
-        
         .opt-group { display: flex; gap: 8px; margin-bottom: 8px; }
         .opt-tag { background: #EBF8FF; color: #2B6CB0; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; border: 1px solid #BEE3F8; }
         
         /* Action Buttons */
-        .action-btn { 
-            display: block; width: 100%; padding: 8px; margin-top: 10px; 
-            background: #EBF8FF; color: #2C5282; text-align: center; 
-            border-radius: 8px; text-decoration: none; font-weight: 700; 
-            border: 1px solid #90CDF4; cursor: pointer; box-sizing: border-box; 
-            font-size: 0.85rem; transition: all 0.2s; 
-        }
+        .action-btn { display: block; width: 100%; padding: 8px; margin-top: 10px; background: #EBF8FF; color: #2C5282; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 700; border: 1px solid #90CDF4; cursor: pointer; box-sizing: border-box; font-size: 0.85rem; transition: all 0.2s; }
         .action-btn.dark { background: #2D3748; color: white; border-color: #2D3748; }
         .action-btn:active { opacity: 0.9; transform: scale(0.98); }
 
         /* Calculator */
         .calc-container { padding: 15px; }
-        .rate-box { 
-            background: var(--calc-bg); color: white; padding: 12px; 
-            border-radius: 10px; text-align: center; font-size: 1rem; font-weight: 600; 
-            margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-        }
+        .rate-box { background: var(--calc-bg); color: white; padding: 12px; border-radius: 10px; text-align: center; font-size: 1rem; font-weight: 600; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .calc-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); margin-bottom: 15px; border: 1px solid #E2E8F0; }
         .calc-title { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .calc-section { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px dashed #E2E8F0; }
         .calc-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .calc-input-group { position: relative; margin-bottom: 10px; }
-        
-        .calc-input { 
-            width: 100%; padding: 8px 10px; font-size: 1.4rem; 
-            border: 1px solid #CBD5E0; border-radius: 8px; 
-            box-sizing: border-box; font-weight: 700; color: var(--primary); 
-            transition: border 0.2s; -moz-appearance: textfield; background: #FAFAFA;
-        }
+        .calc-input { width: 100%; padding: 8px 10px; font-size: 1.4rem; border: 1px solid #CBD5E0; border-radius: 8px; box-sizing: border-box; font-weight: 700; color: var(--primary); transition: border 0.2s; -moz-appearance: textfield; background: #FAFAFA; }
         .calc-input::-webkit-outer-spin-button, .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         .calc-input:focus { outline: none; border-color: var(--primary); border-width: 2px; background: #FFF; }
         .calc-label { position: absolute; right: 10px; top: 12px; font-weight: 600; color: #718096; font-size: 0.85rem; }
-        
         .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
         .res-label { font-size: 0.85rem; color: #718096; font-weight: 500; }
         .res-val { font-size: 1.1rem; font-weight: 800; color: var(--text); }
         .res-val.good { color: var(--success); }
 
-        /* Checklists & Lang & Gourmet */
+        /* Lists & Cards */
         .checklist-container, .lang-container, .gourmet-container { padding: 15px; }
         .progress-container { background: white; padding: 12px 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; border: 1px solid #E2E8F0; }
         .progress-bar-bg { width: 100%; height: 8px; background: #EDF2F7; border-radius: 4px; margin-top: 8px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
-        
         .check-category, .lang-category, .gourmet-category { margin-bottom: 25px; }
         .category-title, .lang-category-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; border-left: 4px solid var(--accent); padding-left: 10px; color: var(--text); }
-        
-        .check-item, .lang-card, .gourmet-card { 
-            background: white; padding: 12px 15px; 
-            margin-bottom: 10px; border-radius: 12px; 
-            display: flex; align-items: center; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.03); cursor: pointer; 
-            border: 1px solid #E2E8F0; 
-        }
+        .check-item, .lang-card, .gourmet-card { background: white; padding: 12px 15px; margin-bottom: 10px; border-radius: 12px; display: flex; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.03); cursor: pointer; border: 1px solid #E2E8F0; }
         .lang-card, .gourmet-card { justify-content: space-between; align-items: center; } 
         .gourmet-card { display: flex; }
-        
         .check-circle { width: 20px; height: 20px; border: 2px solid #CBD5E0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.7rem; color: transparent; flex-shrink: 0; }
         .item-text { font-size: 0.95rem; font-weight: 500; color: var(--text); text-align: left; flex-grow: 1; }
-        
         .check-item.checked { background: #F0FFF4; border-color: #C6F6D5; }
         .check-item.checked .check-circle { background: var(--success); border-color: var(--success); color: white; }
         .check-item.checked .item-text { text-decoration: line-through; color: #A0AEC0; }
-        
         .lang-cn { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; color: var(--text); }
         .lang-jp { font-size: 1.1rem; color: var(--primary); font-weight: 700; margin-bottom: 2px; }
         .lang-roma { font-size: 0.75rem; color: #718096; font-style: italic; }
         .speak-btn { background: #EBF8FF; color: var(--primary); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
-
-        /* Gourmet Card Specifics (Fixed Layout) */
         .gm-info { flex: 1; margin-right: 10px; text-align: left; }
         .gm-name { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
         .gm-desc { font-size: 0.85rem; color: #4A5568; line-height: 1.3; }
-        .gm-btn { 
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 8px 12px; background: #2D3748; color: white; 
-            font-size: 0.75rem; border-radius: 8px; text-decoration: none; 
-            font-weight: 600; white-space: nowrap; flex-shrink: 0; border: none;
-        }
+        .gm-btn { display: inline-flex; align-items: center; justify-content: center; padding: 8px 12px; background: #2D3748; color: white; font-size: 0.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; white-space: nowrap; flex-shrink: 0; border: none; }
 
         /* Bottom Nav */
-        .bottom-nav { 
-            position: fixed; bottom: 0; left: 0; width: 100%; 
-            background: #FFFFFF; border-top: 1px solid #E2E8F0;
-            display: flex; justify-content: space-around; align-items: center;
-            padding: 8px 0; z-index: 99; 
-            padding-bottom: max(10px, env(safe-area-inset-bottom)); 
-        }
-        .nav-item { 
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border: none; background: none; cursor: pointer; 
-            color: #A0AEC0; flex: 1; padding: 2px; 
-            transition: all 0.2s;
-        }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #FFFFFF; border-top: 1px solid #E2E8F0; display: flex; justify-content: space-around; align-items: center; padding: 8px 0; z-index: 99; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+        .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; color: #A0AEC0; flex: 1; padding: 2px; transition: all 0.2s; }
         .nav-item i { font-size: 1.2rem; margin-bottom: 2px; } 
         .nav-item span { font-size: 0.65rem; font-weight: 600; } 
-        .nav-item.active { 
-            color: var(--primary); 
-            background: rgba(49, 130, 206, 0.08); 
-            border-radius: 8px;
-        }
+        .nav-item.active { color: var(--primary); background: rgba(49, 130, 206, 0.08); border-radius: 8px; }
 
-        /* Modal */
+        /* Modal (Enhanced for Maps) */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(2px); }
         .modal-content { background: white; padding: 25px 20px; border-radius: 16px; width: 100%; max-width: 350px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
         .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #CBD5E0; cursor: pointer; }
-        .jp-address { font-size: 1.2rem; font-weight: 800; margin: 20px 0; line-height: 1.4; color: black; border: 2px solid black; padding: 15px; border-radius: 10px; word-break: keep-all; background: #fff; }
+        
+        /* Address Box Clickable Style */
+        .jp-address { 
+            font-size: 1.2rem; font-weight: 800; margin: 20px 0; line-height: 1.4; 
+            color: black; border: 3px solid black; padding: 15px; border-radius: 12px; 
+            word-break: keep-all; background: #fff; 
+            cursor: pointer; transition: background 0.2s;
+            position: relative;
+        }
+        .jp-address:active { background: #f7fafc; border-color: var(--primary); color: var(--primary); }
+        .jp-address:after {
+            content: '👆 點擊開啟地圖';
+            display: block; font-size: 0.7rem; color: #94a3b8; margin-top: 8px; font-weight: 500; border-top: 1px dashed #e2e8f0; padding-top: 5px;
+        }
+
         .jp-sub { font-size: 0.9rem; color: #718096; margin-bottom: 5px; font-weight: 600; }
         .jp-title { font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-top: 5px; word-break: keep-all; line-height: 1.2; }
     </style>
@@ -391,9 +346,6 @@
                             <b>mont-bell</b> (Vioro)<br>
                             <b>BIC CAMERA 天神2館</b>
                         </div>
-                        <button type="button" class="action-btn dark" onclick="openTaxi('ビックカメラ 天神2号館', '福岡市中央区天神 2-4-5')">
-                            📍 顯示地址
-                        </button>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -722,10 +674,16 @@
             tabElement.classList.add('active');
         }
 
-        // Taxi Modal
+        // Taxi Modal with Map Link
         function openTaxi(name, addr) {
             document.getElementById('modal-dest-name').innerText = name;
             document.getElementById('modal-dest-addr').innerText = addr;
+            
+            // Bind click event for map
+            document.getElementById('modal-dest-addr').onclick = function() {
+                window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + " " + addr), '_blank');
+            };
+            
             document.getElementById('taxiModal').style.display = 'flex';
         }
         function closeTaxi() { document.getElementById('taxiModal').style.display = 'none'; }
