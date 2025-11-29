@@ -150,8 +150,8 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.03); cursor: pointer; 
             border: 1px solid #E2E8F0; 
         }
-        /* Fixed: Gourmet layout with flex */
         .lang-card, .gourmet-card { justify-content: space-between; align-items: center; } 
+        .gourmet-card { display: flex; }
         
         .check-circle { width: 20px; height: 20px; border: 2px solid #CBD5E0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.7rem; color: transparent; flex-shrink: 0; }
         .item-text { font-size: 0.95rem; font-weight: 500; color: var(--text); text-align: left; flex-grow: 1; }
@@ -321,8 +321,8 @@
                     <div class="time">14:00</div>
                     <div class="card">
                         <div class="card-title"><i class="fas fa-utensils"></i> 午餐: 牛腸鍋</div>
-                        <div class="card-desc"><b>博多牛雜鍋 前田屋 (博多店)</b></div>
-                         <button class="action-btn dark" onclick="openTaxi('博多もつ鍋 前田屋 (博多店)', '福岡市博多区博多駅東 2-4-9')">
+                        <div class="card-desc"><b>博多牛雜鍋 前田屋 (博多店)</b><br>地址: 博多駅前3-26-5</div>
+                         <button class="action-btn dark" onclick="openTaxi('博多もつ鍋 前田屋 (博多店)', '福岡市博多区博多駅前 3-26-5')">
                             <i class="fas fa-map-marker-alt"></i> 顯示目的地
                         </button>
                     </div>
