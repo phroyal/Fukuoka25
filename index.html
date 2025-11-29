@@ -151,7 +151,7 @@
             border: 1px solid #E2E8F0; 
         }
         .lang-card, .gourmet-card { justify-content: space-between; align-items: flex-start; }
-        .gourmet-card { display: block; } /* Block layout for gourmet */
+        .gourmet-card { display: block; } 
         
         .check-circle { width: 20px; height: 20px; border: 2px solid #CBD5E0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.7rem; color: transparent; flex-shrink: 0; }
         .item-text { font-size: 0.95rem; font-weight: 500; color: var(--text); text-align: left; flex-grow: 1; }
@@ -168,7 +168,7 @@
         /* Gourmet Card Specifics */
         .gm-name { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; display: flex; justify-content: space-between;}
         .gm-desc { font-size: 0.85rem; color: #4A5568; line-height: 1.4; margin-bottom: 8px; }
-        .gm-btn { display: inline-block; padding: 6px 12px; background: #2D3748; color: white; font-size: 0.75rem; border-radius: 15px; text-decoration: none; font-weight: 600; }
+        .gm-btn { display: inline-block; padding: 6px 12px; background: #2D3748; color: white; font-size: 0.75rem; border-radius: 15px; text-decoration: none; font-weight: 600; float: right;}
 
         /* Bottom Nav */
         .bottom-nav { 
@@ -181,7 +181,7 @@
         .nav-item { 
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             border: none; background: none; cursor: pointer; 
-            color: #A0AEC0; flex: 1; padding: 2px; /* reduced padding */
+            color: #A0AEC0; flex: 1; padding: 2px; 
             transition: all 0.2s;
         }
         .nav-item i { font-size: 1.2rem; margin-bottom: 2px; } 
@@ -558,34 +558,39 @@
                     <button class="gm-btn" onclick="openTaxi('博多らーめん Shin-Shin (天神本店)', '福岡市中央区天神 3-2-19')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
-                    <div class="gm-name">博多一双 (Hakata Issou)</div>
-                    <div class="gm-desc">號稱「豚骨卡布奇諾」，湯頭濃郁充滿泡泡，重口味首選。</div>
-                    <button class="gm-btn" onclick="openTaxi('博多一双 (博多駅東本店)', '福岡市博多区博多駅東 3-1-6')">📍 顯示地址</button>
+                    <div class="gm-name">暖暮 (Danbo)</div>
+                    <div class="gm-desc">九州拉麵總選舉冠軍，湯頭濃郁但沒有臭味，可選辣度。</div>
+                    <button class="gm-btn" onclick="openTaxi('暖暮 (博多中洲店)', '福岡市博多区中洲 4-7-20')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
-                    <div class="gm-name">元祖長浜屋</div>
-                    <div class="gm-desc">長濱拉麵發源地，只賣一種拉麵，便宜快速，在地早餐首選。</div>
-                    <button class="gm-btn" onclick="openTaxi('元祖長浜屋', '福岡市中央区長浜 2-5-25')">📍 顯示地址</button>
+                    <div class="gm-name">一蘭 本社総本店</div>
+                    <div class="gm-desc">福岡總本店，整棟掛滿燈籠非常壯觀，位子多。</div>
+                    <button class="gm-btn" onclick="openTaxi('一蘭 本社総本店', '福岡市博多区中洲 5-3-2')">📍 顯示地址</button>
                 </div>
             </div>
 
             <div class="gourmet-category">
-                <div class="lang-category-title"><i class="fas fa-fish"></i> 特色美食</div>
+                <div class="lang-category-title"><i class="fas fa-fish"></i> 特色美食 (清淡/海鮮)</div>
                 
                 <div class="gourmet-card">
-                    <div class="gm-name">元祖博多めんたい重</div>
-                    <div class="gm-desc">整條明太子蓋飯，價格稍高但非常豪華，適合拍照打卡。</div>
-                    <button class="gm-btn" onclick="openTaxi('元祖博多めんたい重', '福岡市中央区西中洲 6-15')">📍 顯示地址</button>
+                    <div class="gm-name">ひょうたん寿司 (天神)</div>
+                    <div class="gm-desc">天神超人氣迴轉/單點壽司，CP值極高，午間套餐划算。</div>
+                    <button class="gm-btn" onclick="openTaxi('ひょうたん寿司', '福岡市中央区天神 2-10-20')">📍 顯示地址</button>
                 </div>
                 <div class="gourmet-card">
+                    <div class="gm-name">大地のうどん (博多)</div>
+                    <div class="gm-desc">福岡烏龍麵代表，必點「牛蒡天婦羅」，湯頭清澈鮮甜。</div>
+                    <button class="gm-btn" onclick="openTaxi('大地のうどん (博多駅ちかてん)', '福岡市博多区博多駅前 2-1-1')">📍 顯示地址</button>
+                </div>
+                <div class="gourmet-card">
+                    <div class="gm-name">博多華味鳥 (水炊鍋)</div>
+                    <div class="gm-desc">福岡傳統雞肉火鍋，雞湯濃郁充滿膠原蛋白，口感清爽不油。</div>
+                    <button class="gm-btn" onclick="openTaxi('博多華味鳥 (天神西通り店)', '福岡市中央区大名 1-12-57')">📍 顯示地址</button>
+                </div>
+                 <div class="gourmet-card">
                     <div class="gm-name">博多ごまさば屋</div>
-                    <div class="gm-desc">「胡麻鯖魚」是福岡必吃生魚片料理，這間定食CP值超高。</div>
+                    <div class="gm-desc">「胡麻鯖魚」是福岡名物，生魚片拌胡麻醬，健康清爽。</div>
                     <button class="gm-btn" onclick="openTaxi('博多ごまさば屋', '福岡市中央区舞鶴 1-8-26')">📍 顯示地址</button>
-                </div>
-                <div class="gourmet-card">
-                    <div class="gm-name">かわ屋 (Kaway)</div>
-                    <div class="gm-desc">博多特色「雞皮串」，要烤好幾次，口感酥脆不油膩。</div>
-                    <button class="gm-btn" onclick="openTaxi('かわ屋 (警固店)', '福岡市中央区警固 2-16-10')">📍 顯示地址</button>
                 </div>
             </div>
 
